@@ -5,12 +5,17 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private int movementSpeed;
-    [SerializeField] private int jumpForce;
+    [SerializeField] private float jumpForce;
+
+    private Animator animator;
     private Rigidbody2D rigidbody;
     private bool facingRight = true;
+    private bool canJump;
+
     // Start is called before the first frame update
     void Start() {
         rigidbody = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -18,8 +23,8 @@ public class PlayerMovement : MonoBehaviour
     {
         transform.position += new Vector3(Input.GetAxis("Horizontal") * movementSpeed  * Time.deltaTime, 0, 0);
 
-        if (Input.GetKeyDown(KeyCode.Space)) {
-            rigidbody.AddForce(new Vector2(0,jumpForce)*100);
+        if (Input.GetKeyDown(KeyCode.Space) && canJump) {
+            rigidbody.AddForce(new Vector2(0,jumpForce), ForceMode2D.Impulse);
         }
         
         //Flip the sprite according to the direction
@@ -32,6 +37,9 @@ public class PlayerMovement : MonoBehaviour
         {
             FlipSprite();
         }
+        
+        AnimatorManagement();
+        canJump = Mathf.Abs(rigidbody.velocity.y)==0;
     }
     
     private void FlipSprite()
@@ -44,4 +52,9 @@ public class PlayerMovement : MonoBehaviour
         scale.x *= -1;
         transform.localScale = scale;
     }
+
+    private void AnimatorManagement() {
+        animator.SetFloat("runningSpeed", Mathf.Abs(Input.GetAxis("Horizontal")));
+    }
+    
 }
