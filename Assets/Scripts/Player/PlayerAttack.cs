@@ -6,9 +6,10 @@ public class PlayerAttack : MonoBehaviour
 {
     private Animator animator;
     [SerializeField] private Transform attackPoint;
-    private float attackRange = 0.5f;
+    private float attackRange = 0.6f;
     [SerializeField] private LayerMask enemyLayers;
     [SerializeField] private float attackRate;
+    [SerializeField] private float damageCost;
     private float nextAttackTime = 0f;
 
     // Start is called before the first frame update
@@ -34,7 +35,7 @@ public class PlayerAttack : MonoBehaviour
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
         foreach (Collider2D enemy in hitEnemies) {
-            Debug.Log("hit");
+            enemy.gameObject.GetComponent<EnemyLife>().takeDamage(damageCost);
         }
     }
     
