@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rigidbody;
     private bool facingRight = true;
     private bool canJump;
+    private bool canMove = true;
 
     // Start is called before the first frame update
     void Start() {
@@ -21,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += new Vector3(Input.GetAxis("Horizontal") * movementSpeed  * Time.deltaTime, 0, 0);
+        if(canMove) transform.position += new Vector3(Input.GetAxis("Horizontal") * movementSpeed  * Time.deltaTime, 0, 0);
 
         if (Input.GetKeyDown(KeyCode.Space) && canJump) {
             rigidbody.AddForce(new Vector2(0,jumpForce), ForceMode2D.Impulse);
@@ -54,7 +55,16 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void AnimatorManagement() {
-        animator.SetFloat("runningSpeed", Mathf.Abs(Input.GetAxis("Horizontal")));
+        animator.SetFloat("horizontalVelocity", Mathf.Abs(Input.GetAxis("Horizontal")));
+        animator.SetFloat("verticalVelocity",rigidbody.velocity.y);
+        
+        Debug.Log(rigidbody.velocity.y);
+        if (animator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "playerFallToIdle_transition") {
+            canMove = false;
+        }
+        else {
+            canMove = true;
+        }
     }
     
 }

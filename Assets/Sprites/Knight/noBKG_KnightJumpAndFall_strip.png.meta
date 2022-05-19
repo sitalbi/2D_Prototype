@@ -86,6 +86,42 @@ TextureImporter:
   - first:
       213: 7117400468188149228
     second: noBKG_KnightJumpAndFall_strip_13
+  - first:
+      213: -5188971698814021395
+    second: noBKG_KnightJumpAndFall_strip_14
+  - first:
+      213: 7742087010151812843
+    second: noBKG_KnightJumpAndFall_strip_15
+  - first:
+      213: -4556865190164124334
+    second: noBKG_KnightJumpAndFall_strip_16
+  - first:
+      213: -4767109427503189226
+    second: noBKG_KnightJumpAndFall_strip_17
+  - first:
+      213: 6424695090527197003
+    second: noBKG_KnightJumpAndFall_strip_18
+  - first:
+      213: 3287517278049289463
+    second: noBKG_KnightJumpAndFall_strip_14
+  - first:
+      213: -2907811738219602188
+    second: noBKG_KnightJumpAndFall_strip_15
+  - first:
+      213: -8294760658875240279
+    second: noBKG_KnightJumpAndFall_strip_16
+  - first:
+      213: 6940022616625497326
+    second: noBKG_KnightJumpAndFall_strip_17
+  - first:
+      213: -920309902766198952
+    second: noBKG_KnightJumpAndFall_strip_18
+  - first:
+      213: 7560008314671561741
+    second: noBKG_KnightJumpAndFall_strip_19
+  - first:
+      213: -7728486502953095517
+    second: noBKG_KnightJumpAndFall_strip_20
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -197,12 +233,12 @@ TextureImporter:
       name: noBKG_KnightJumpAndFall_strip_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 32
         y: 0
-        width: 154.28572
+        width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -218,12 +254,12 @@ TextureImporter:
       name: noBKG_KnightJumpAndFall_strip_1
       rect:
         serializedVersion: 2
-        x: 154
+        x: 176
         y: 0
-        width: 154.28572
+        width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -239,12 +275,12 @@ TextureImporter:
       name: noBKG_KnightJumpAndFall_strip_2
       rect:
         serializedVersion: 2
-        x: 308
+        x: 322
         y: 0
-        width: 154.28572
+        width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -257,36 +293,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: noBKG_KnightJumpAndFall_strip_3
-      rect:
-        serializedVersion: 2
-        x: 462
-        y: 0
-        width: 154.28572
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 73cdb86c77802b780800000000000000
-      internalID: -8668857022209598409
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: noBKG_KnightJumpAndFall_strip_4
       rect:
         serializedVersion: 2
-        x: 616
+        x: 469
         y: 0
-        width: 154.28572
+        width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -302,12 +317,12 @@ TextureImporter:
       name: noBKG_KnightJumpAndFall_strip_5
       rect:
         serializedVersion: 2
-        x: 770
+        x: 618
         y: 0
-        width: 154.28572
+        width: 64
         height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5173788, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -323,12 +338,12 @@ TextureImporter:
       name: noBKG_KnightJumpAndFall_strip_6
       rect:
         serializedVersion: 2
-        x: 924
+        x: 773
         y: 0
-        width: 154.28572
+        width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -341,36 +356,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: noBKG_KnightJumpAndFall_strip_7
-      rect:
-        serializedVersion: 2
-        x: 1078
-        y: 0
-        width: 154.28572
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6187fe7b9f21c5d50800000000000000
-      internalID: 6727272807126759446
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: noBKG_KnightJumpAndFall_strip_8
       rect:
         serializedVersion: 2
-        x: 1232
+        x: 925
         y: 0
-        width: 154.28572
+        width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -386,12 +380,12 @@ TextureImporter:
       name: noBKG_KnightJumpAndFall_strip_9
       rect:
         serializedVersion: 2
-        x: 1386
+        x: 1082
         y: 0
-        width: 154.28572
+        width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -404,36 +398,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: noBKG_KnightJumpAndFall_strip_10
-      rect:
-        serializedVersion: 2
-        x: 1540
-        y: 0
-        width: 154.28572
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 58447fd22e842e7b0800000000000000
-      internalID: -5196510883761142651
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: noBKG_KnightJumpAndFall_strip_11
       rect:
         serializedVersion: 2
-        x: 1694
+        x: 1234
         y: 0
-        width: 154.28572
+        width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -449,12 +422,12 @@ TextureImporter:
       name: noBKG_KnightJumpAndFall_strip_12
       rect:
         serializedVersion: 2
-        x: 1848
+        x: 1386
         y: 0
-        width: 154.28572
+        width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -467,22 +440,85 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: noBKG_KnightJumpAndFall_strip_13
+      name: noBKG_KnightJumpAndFall_strip_14
       rect:
         serializedVersion: 2
-        x: 2002
+        x: 1537
         y: 0
-        width: 154.28572
+        width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ce5bd86240616c260800000000000000
-      internalID: 7117400468188149228
+      spriteID: 7f4461fdb8b9f9d20800000000000000
+      internalID: 3287517278049289463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: noBKG_KnightJumpAndFall_strip_15
+      rect:
+        serializedVersion: 2
+        x: 1681
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fe95bd51a065a7d0800000000000000
+      internalID: -2907811738219602188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: noBKG_KnightJumpAndFall_strip_16
+      rect:
+        serializedVersion: 2
+        x: 1822
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a03bd6d02713ec80800000000000000
+      internalID: -8294760658875240279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: noBKG_KnightJumpAndFall_strip_17
+      rect:
+        serializedVersion: 2
+        x: 1967
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee4c32dccc9ef4060800000000000000
+      internalID: 6940022616625497326
       vertices: []
       indices: 
       edges: []
