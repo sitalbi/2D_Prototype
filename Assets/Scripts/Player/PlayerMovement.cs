@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -22,28 +24,38 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += new Vector3(Input.GetAxis("Horizontal") * (movementSpeed * reducedSpeed)  * Time.deltaTime, 0, 0);
-
-        if (Input.GetKeyDown(KeyCode.Space) && canJump) {
-            rigidbody.AddForce(new Vector2(0,jumpForce), ForceMode2D.Impulse);
-        }
+        //transform.position += new Vector3(Input.GetAxis("Horizontal") * (movementSpeed * reducedSpeed)  * Time.deltaTime, 0, 0);
         
+        canJump = Mathf.Abs(rigidbody.velocity.y)==0;
+
         //Flip the sprite according to the direction
         if(Input.GetAxis("Horizontal") < 0 && facingRight)
         {
             FlipSprite();
-        }
-
-        if (Input.GetAxis("Horizontal") > 0 && !facingRight)
+        } else if (Input.GetAxis("Horizontal") > 0 && !facingRight)
         {
             FlipSprite();
         }
         
-        AnimatorManagement();
-        canJump = Mathf.Abs(rigidbody.velocity.y)==0;
+        //AnimatorManagement();
     }
 
-    
+    void FixedUpdate() {
+        if (Input.GetAxis("Horizontal")>0) {
+            rigidbody.velocity = new Vector2(movementSpeed, rigidbody.velocity.y);
+        } else if (Input.GetAxis("Horizontal")<0) {
+            rigidbody.velocity = new Vector2(-movementSpeed, rigidbody.velocity.y);
+        }
+        else {
+            rigidbody.velocity = new Vector2(0, rigidbody.velocity.y);
+        }
+        
+        if (Input.GetKey(KeyCode.Space) && canJump) {
+            rigidbody.AddForce(new Vector2(0,jumpForce), ForceMode2D.Impulse);
+        }
+        
+    }
+
 
     private void FlipSprite()
     {
@@ -62,10 +74,10 @@ public class PlayerMovement : MonoBehaviour
 
         switch (animator.GetCurrentAnimatorClipInfo(0)[0].clip.name) {
             case "playerAttack":
-                reducedSpeed = 0.5f;
+                movementSpeed /= 2;
                 break;
             default:
-                reducedSpeed = 1f;
+                movementSpeed *= 2;
                 break;
         }
     }
