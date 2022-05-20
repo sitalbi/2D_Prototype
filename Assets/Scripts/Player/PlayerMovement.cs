@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -13,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rigidbody;
     private bool facingRight = true;
     private bool canJump;
-    private float reducedSpeed = 1f;
+    private float horizontalAxis;
 
     // Start is called before the first frame update
     void Start() {
@@ -22,38 +21,35 @@ public class PlayerMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        //transform.position += new Vector3(Input.GetAxis("Horizontal") * (movementSpeed * reducedSpeed)  * Time.deltaTime, 0, 0);
-        
-        canJump = Mathf.Abs(rigidbody.velocity.y)==0;
+    void Update() {
+        horizontalAxis = Input.GetAxis("Horizontal");
+        canJump = Mathf.Abs(rigidbody.velocity.y) == 0;
 
         //Flip the sprite according to the direction
-        if(Input.GetAxis("Horizontal") < 0 && facingRight)
+        if(horizontalAxis < 0 && facingRight)
         {
             FlipSprite();
-        } else if (Input.GetAxis("Horizontal") > 0 && !facingRight)
+        } else if (horizontalAxis > 0 && !facingRight)
         {
             FlipSprite();
         }
         
-        //AnimatorManagement();
+        AnimatorManagement();
     }
 
     void FixedUpdate() {
-        if (Input.GetAxis("Horizontal")>0) {
+        if (Input.GetKey("right")) {
             rigidbody.velocity = new Vector2(movementSpeed, rigidbody.velocity.y);
-        } else if (Input.GetAxis("Horizontal")<0) {
+        } else if (Input.GetKey("left")) {
             rigidbody.velocity = new Vector2(-movementSpeed, rigidbody.velocity.y);
         }
         else {
             rigidbody.velocity = new Vector2(0, rigidbody.velocity.y);
         }
         
-        if (Input.GetKey(KeyCode.Space) && canJump) {
+        if (Input.GetKey("up") && canJump) {
             rigidbody.AddForce(new Vector2(0,jumpForce), ForceMode2D.Impulse);
         }
-        
     }
 
 
@@ -69,17 +65,8 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void AnimatorManagement() {
-        animator.SetFloat("horizontalVelocity", Mathf.Abs(Input.GetAxis("Horizontal")));
+        animator.SetFloat("horizontalVelocity", Mathf.Abs(horizontalAxis));
         animator.SetFloat("verticalVelocity",rigidbody.velocity.y);
-
-        switch (animator.GetCurrentAnimatorClipInfo(0)[0].clip.name) {
-            case "playerAttack":
-                movementSpeed /= 2;
-                break;
-            default:
-                movementSpeed *= 2;
-                break;
-        }
     }
     
 }
