@@ -1,0 +1,430 @@
+fileFormatVersion: 2
+guid: 879896b3756768c46ae011f8d06422f9
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8992090605758154104
+    second: link_idle_weapon_0
+  - first:
+      213: -4695300018382826337
+    second: link_idle_weapon_1
+  - first:
+      213: -7047537909839147188
+    second: link_idle_weapon_2
+  - first:
+      213: 5936945751191695299
+    second: link_idle_weapon_3
+  - first:
+      213: 6538432879856141217
+    second: link_idle_weapon_4
+  - first:
+      213: -5090765031476139513
+    second: link_idle_weapon_5
+  - first:
+      213: 3952202939511624023
+    second: link_idle_weapon_6
+  - first:
+      213: -4208698588874818042
+    second: link_idle_weapon_7
+  - first:
+      213: 3134735352536047539
+    second: link_idle_weapon_8
+  - first:
+      213: 8493094311626246191
+    second: link_idle_weapon_9
+  - first:
+      213: -7543013876447092578
+    second: link_idle_weapon_10
+  - first:
+      213: 1908158477769079611
+    second: link_idle_weapon_11
+  - first:
+      213: -5868680223924971550
+    second: link_idle_weapon_12
+  - first:
+      213: -4485255186491500446
+    second: link_idle_weapon_13
+  - first:
+      213: 4120529971825202591
+    second: link_idle_weapon_14
+  - first:
+      213: -6533167940360793982
+    second: link_idle_weapon_15
+  - first:
+      213: 73442857249397271
+    second: link_idle_weapon_16
+  - first:
+      213: 2164172739285052845
+    second: link_idle_weapon_17
+  - first:
+      213: 7467132688797180803
+    second: link_idle_weapon_18
+  - first:
+      213: -8660964557444114542
+    second: link_idle_weapon_19
+  - first:
+      213: 8732240317071338134
+    second: link_idle_weapon_20
+  - first:
+      213: -3548664592259095326
+    second: link_idle_weapon_21
+  - first:
+      213: -5772978091782515334
+    second: link_idle_weapon_22
+  - first:
+      213: 2659871300188285348
+    second: link_idle_weapon_23
+  - first:
+      213: -6728202590175215684
+    second: link_idle_weapon_24
+  - first:
+      213: -2803116034292257569
+    second: link_idle_weapon_25
+  - first:
+      213: -3318533966911941406
+    second: link_idle_weapon_26
+  - first:
+      213: -7944529271430437748
+    second: link_idle_weapon_27
+  - first:
+      213: -8151223189357907294
+    second: link_idle_weapon_28
+  - first:
+      213: -2056539334499110692
+    second: link_idle_weapon_29
+  - first:
+      213: 7879202116466279746
+    second: link_idle_weapon_30
+  - first:
+      213: -4239222475043446238
+    second: link_idle_weapon_31
+  - first:
+      213: 6004050284430227077
+    second: link_idle_weapon_32
+  - first:
+      213: 1835227209882119925
+    second: link_idle_weapon_33
+  - first:
+      213: 1162810318682840463
+    second: link_idle_weapon_34
+  - first:
+      213: 9207266370905492152
+    second: link_idle_weapon_35
+  - first:
+      213: 3160948151368037554
+    second: link_idle_weapon_36
+  - first:
+      213: -4685286414561249119
+    second: link_idle_weapon_37
+  - first:
+      213: 3773961039244378952
+    second: link_idle_weapon_38
+  - first:
+      213: -4731456661076285530
+    second: link_idle_weapon_39
+  - first:
+      213: 870948082291812321
+    second: link_idle_weapon_40
+  - first:
+      213: 2204300939974464317
+    second: link_idle_weapon_41
+  - first:
+      213: -3516291978855446557
+    second: link_idle_weapon_42
+  - first:
+      213: -5675894494324824561
+    second: link_idle_weapon_43
+  - first:
+      213: -8203641241136826037
+    second: link_idle_weapon_44
+  - first:
+      213: -7152569949960936903
+    second: link_idle_weapon_45
+  - first:
+      213: -8604478873933969699
+    second: link_idle_weapon_46
+  - first:
+      213: 1807169130660077914
+    second: link_idle_weapon_47
+  - first:
+      213: -8069843730988190900
+    second: link_idle_weapon_48
+  - first:
+      213: 4436053907543160367
+    second: link_idle_weapon_49
+  - first:
+      213: 8777975112721061416
+    second: link_idle_weapon_50
+  - first:
+      213: 2730270335295582004
+    second: link_idle_weapon_51
+  - first:
+      213: -984116449355800866
+    second: link_idle_weapon_52
+  - first:
+      213: 4055663251523930684
+    second: link_idle_weapon_53
+  - first:
+      213: -6629999788763081396
+    second: link_idle_weapon_54
+  - first:
+      213: 2146906657715214118
+    second: link_idle_weapon_55
+  - first:
+      213: -9140464918381109853
+    second: link_idle_weapon_56
+  - first:
+      213: -8674018592759180268
+    second: link_idle_weapon_57
+  - first:
+      213: -3750996134448976457
+    second: link_idle_weapon_58
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: link_idle_weapon_0
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 11
+        width: 45
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 875875883c25acc70800000000000000
+      internalID: 8992090605758154104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: link_idle_weapon_1
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 11
+        width: 45
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9418629281f6deb0800000000000000
+      internalID: -4695300018382826337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: link_idle_weapon_2
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 11
+        width: 45
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4f40f64c9d123e90800000000000000
+      internalID: -7047537909839147188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: link_idle_weapon_3
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 11
+        width: 45
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cfab8694b4446250800000000000000
+      internalID: 5936945751191695299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: link_idle_weapon_4
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 11
+        width: 45
+        height: 59
+      alignment: 9
+      pivot: {x: 0.5, y: 0.49999994}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a34f87ef0e2dba50800000000000000
+      internalID: 6538432879856141217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: link_idle_weapon_5
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 11
+        width: 45
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70a62e70d28f959b0800000000000000
+      internalID: -5090765031476139513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

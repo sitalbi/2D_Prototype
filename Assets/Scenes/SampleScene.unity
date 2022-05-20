@@ -2959,8 +2959,8 @@ GameObject:
   - component: {fileID: 2005185641}
   - component: {fileID: 2005185640}
   - component: {fileID: 2005185639}
-  - component: {fileID: 2005185643}
   - component: {fileID: 2005185644}
+  - component: {fileID: 2005185643}
   - component: {fileID: 2005185645}
   m_Layer: 0
   m_Name: Player
@@ -3061,11 +3061,11 @@ Rigidbody2D:
   m_Mass: 5
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 2
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!4 &2005185642
 Transform:
@@ -3094,7 +3094,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c8f647db360bfe428d6afa473513100, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 6
+  movementSpeed: 4
   jumpForce: 35
 --- !u!95 &2005185644
 Animator:
@@ -3154,7 +3154,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &2035474399
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3277,7 +3277,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 5
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
