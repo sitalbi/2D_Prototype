@@ -1,15 +1,17 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
     private Animator animator;
-    [SerializeField] private Transform attackPoint;
+    [SerializeField] 
+    private Transform attackPoint;
     private float attackRange = 0.6f;
-    [SerializeField] private LayerMask enemyLayers;
-    [SerializeField] private float attackRate;
-    [SerializeField] private float damageCost;
+    [SerializeField] 
+    private LayerMask enemyLayers;
+    [SerializeField] 
+    private float attackRate;
+    [SerializeField] 
+    private float damageCost;
     private float nextAttackTime = 0f;
 
     // Start is called before the first frame update

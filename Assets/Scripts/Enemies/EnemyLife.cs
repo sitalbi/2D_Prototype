@@ -5,7 +5,6 @@ using UnityEngine;
 public class EnemyLife : MonoBehaviour
 {
     [SerializeField] private float health;
-    public bool isTakingDamage;
     private Animator _animator;
     
     // Start is called before the first frame update
@@ -18,12 +17,18 @@ public class EnemyLife : MonoBehaviour
     {
         if (health <= 0) {
             //Death
+            GetComponent<EnemyMovement>().enabled = false;
+            _animator.Play("goblin_death");
+            Destroy(this.gameObject, _animator.GetCurrentAnimatorStateInfo(0).length+0.5f);
         }
+    }
+
+    private void Death() {
+        enabled = false;
     }
 
     public void takeDamage(float damageCost) {
         _animator.SetTrigger("Damage");
         health -= damageCost;
-        isTakingDamage = true;
     }
 }

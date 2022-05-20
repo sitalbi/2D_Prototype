@@ -6,28 +6,31 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private Transform player;
     [SerializeField] private int movementSpeed;
 
+    public float distanceFromPlayer;
+
     private Animator animator;
     private Rigidbody2D rigidbody;
     private bool facingRight = true;
     private int playerWay;
-    private bool canMove;
+    public bool canMove = true;
+    private bool inRange;
 
     // Start is called before the first frame update
     void Start() {
         rigidbody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        distanceFromPlayer = Mathf.Abs(player.position.x - transform.position.x);
     }
 
     // Update is called once per frame
     void Update() {
-        if (Mathf.Abs(player.position.x - transform.position.x) <= 8f &&
-            Mathf.Abs(player.position.x - transform.position.x) >= 2f) {
+        distanceFromPlayer = Mathf.Abs(player.position.x - transform.position.x);
+        inRange = distanceFromPlayer <=8f && distanceFromPlayer>=2f;
+        if(inRange) {
             playerWay = player.position.x - transform.position.x > 0 ? 1 : -1;
-            canMove = rigidbody.velocity.y == 0;
         }
         else {
             playerWay = 0;
-            canMove = false;
         }
 
         //Flip the sprite according to the direction
@@ -39,11 +42,13 @@ public class EnemyMovement : MonoBehaviour
             FlipSprite();
         }
 
+        canMove = canMove && rigidbody.velocity.y == 0;
+
         AnimatorManagement();
     }
 
     private void FixedUpdate() {
-        if (canMove) {
+        if (canMove && inRange) {
             rigidbody.velocity = new Vector2(movementSpeed * playerWay, rigidbody.velocity.y);
         }
         else {
