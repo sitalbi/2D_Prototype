@@ -3,6 +3,7 @@
 public class PlayerAttack : MonoBehaviour
 {
     private Animator animator;
+    private PlayerMovement _playerMovement;
     [SerializeField] 
     private Transform attackPoint;
     private float attackRange = 0.6f;
@@ -18,16 +19,21 @@ public class PlayerAttack : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+        _playerMovement = GetComponent<PlayerMovement>();
     }
 
     // Update is called once per frame
     void Update()
     {
         if (Time.time >= nextAttackTime) {
+            _playerMovement.reducedSpeed = 1f;
             if (Input.GetKeyDown(KeyCode.X)) {
                 animator.SetTrigger("Attack");
                 nextAttackTime = Time.time + 1f/attackRate;
             }
+        }
+        else {
+            _playerMovement.reducedSpeed = 0.3f;
         }
     }
 

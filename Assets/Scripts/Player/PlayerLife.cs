@@ -21,7 +21,6 @@ public class PlayerLife : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(health);
         if (Time.time < nextDamageTime) {
             _spriteRenderer.color = Color.grey;
         }
@@ -34,7 +33,7 @@ public class PlayerLife : MonoBehaviour
         if (Time.time >= nextDamageTime) {
             health -= damageCost;
             nextDamageTime = Time.time + invincibilityTime;
-            _movement.isHurt = true;
+            //_movement.isHurt = true;
         }
     }
 }

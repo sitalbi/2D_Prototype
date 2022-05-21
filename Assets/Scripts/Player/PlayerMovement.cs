@@ -2,18 +2,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private int movementSpeed;
-    [SerializeField] private float jumpForce;
+    [SerializeField] 
+    private int movementSpeed;
+    [SerializeField] 
+    private float jumpForce;
+    [SerializeField]
+    private float dashForce;
 
     private Animator animator;
     private Rigidbody2D rigidbody;
+    
     private bool facingRight = true;
-    private bool canJump;
+    
     private float horizontalAxis;
-    public bool isHurt;
+    public float reducedSpeed;
+
+    private float nextDashTime;
+    public bool canDash;
+    private bool canJump;
+    private bool isDashing;
 
     // Start is called before the first frame update
     void Start() {
@@ -34,15 +45,21 @@ public class PlayerMovement : MonoBehaviour
         {
             FlipSprite();
         }
-        
+
+        // Reinitialize isDashing variable
+        if (!canDash) {
+            isDashing = false;
+        }
+
         AnimatorManagement();
     }
 
     void FixedUpdate() {
-        if (Input.GetKey("right")) {
-            rigidbody.velocity = new Vector2(movementSpeed, rigidbody.velocity.y);
-        } else if (Input.GetKey("left")) {
-            rigidbody.velocity = new Vector2(-movementSpeed, rigidbody.velocity.y);
+        // Walk
+        if (Input.GetKey("right") && !isDashing) {
+            rigidbody.velocity = new Vector2(movementSpeed*reducedSpeed, rigidbody.velocity.y);
+        } else if (Input.GetKey("left") && !isDashing) {
+            rigidbody.velocity = new Vector2(-movementSpeed*reducedSpeed, rigidbody.velocity.y);
         }
         /* Knockback when hurt (not optimal implementation)
         else if(isHurt) {
@@ -55,8 +72,16 @@ public class PlayerMovement : MonoBehaviour
             rigidbody.velocity = new Vector2(0, rigidbody.velocity.y);
         }
         
+        //Jump
         if (Input.GetKey("up") && canJump) {
             rigidbody.AddForce(new Vector2(0,jumpForce), ForceMode2D.Impulse);
+        }
+        
+        //Dash
+        if (Input.GetKey(KeyCode.Space) && !canJump && canDash) {
+            canDash = false;
+            isDashing = true;
+            rigidbody.AddForce(new Vector2(dashForce*horizontalAxis,0), ForceMode2D.Impulse);
         }
     }
 

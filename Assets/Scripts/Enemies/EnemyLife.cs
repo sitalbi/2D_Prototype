@@ -18,7 +18,7 @@ public class EnemyLife : MonoBehaviour
     {
         if (health <= 0) {
             //Death
-            _animator.SetTrigger("Death");
+            _animator.Play("goblin_death");
             GetComponent<EnemyMovement>().enabled = false;
             Destroy(this.gameObject, _animator.GetCurrentAnimatorStateInfo(0).length);
         }
