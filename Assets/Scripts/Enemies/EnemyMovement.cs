@@ -3,16 +3,19 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    [SerializeField] private Transform player;
-    [SerializeField] private int movementSpeed;
+    [SerializeField] 
+    private Transform player;
+    [SerializeField]
+    private int movementSpeed;
 
+    [NonSerialized]
     public float distanceFromPlayer;
 
     private Animator animator;
     public Rigidbody2D rigidbody;
     private bool facingRight = true;
     private int playerWay;
-    public bool canMove = true;
+    public bool canMove;
     private bool inRange;
 
     // Start is called before the first frame update
@@ -42,13 +45,11 @@ public class EnemyMovement : MonoBehaviour
             FlipSprite();
         }
 
-        canMove = canMove && rigidbody.velocity.y == 0;
-
         AnimatorManagement();
     }
 
     private void FixedUpdate() {
-        if (canMove && inRange) {
+        if (canMove && inRange && rigidbody.velocity.y == 0) {
             rigidbody.velocity = new Vector2(movementSpeed * playerWay, rigidbody.velocity.y);
         }
         else {

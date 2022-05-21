@@ -8,7 +8,8 @@ public class EnemyAttack : MonoBehaviour
     private Rigidbody2D rg2D;
     [SerializeField] 
     private Transform attackPoint;
-    private float attackRange = 0.4f;
+
+    [SerializeField] private float attackRange;
     [SerializeField] 
     private LayerMask enemyLayers;
     [SerializeField] 
@@ -31,19 +32,22 @@ public class EnemyAttack : MonoBehaviour
         _movement.canMove = Time.time >= nextAttackTime;
         if (Time.time >= nextAttackTime) { 
             if (_movement.distanceFromPlayer <= 2f) {
-                Attack();
+                animator.SetTrigger("Attack");
+                nextAttackTime = Time.time + 1f/attackRate;
+            }
+            else {
+                attackPoint.gameObject.SetActive(false);
             }
         }
     }
 
     private void Attack() {
-            animator.SetTrigger("Attack");
-            nextAttackTime = Time.time + 1f/attackRate;
+        attackPoint.gameObject.SetActive(true);
 
-            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
-            foreach (Collider2D enemy in hitEnemies) {
-                //enemy.gameObject.GetComponent<EnemyLife>().takeDamage(damageCost);
-            }
+        foreach (Collider2D enemy in hitEnemies) {
+            enemy.gameObject.GetComponent<PlayerDamage>().takeDamage(damageCost);
+        }
     }
 }

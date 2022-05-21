@@ -25,15 +25,13 @@ public class PlayerAttack : MonoBehaviour
     {
         if (Time.time >= nextAttackTime) {
             if (Input.GetKeyDown(KeyCode.X)) {
-                Attack();
+                animator.SetTrigger("Attack");
+                nextAttackTime = Time.time + 1f/attackRate;
             }
         }
     }
 
     private void Attack() {
-        animator.SetTrigger("Attack");
-        nextAttackTime = Time.time + 1f/attackRate;
-
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
         foreach (Collider2D enemy in hitEnemies) {
