@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     private bool facingRight = true;
     private bool canJump;
     private float horizontalAxis;
+    public bool isHurt;
 
     // Start is called before the first frame update
     void Start() {
@@ -43,6 +44,13 @@ public class PlayerMovement : MonoBehaviour
         } else if (Input.GetKey("left")) {
             rigidbody.velocity = new Vector2(-movementSpeed, rigidbody.velocity.y);
         }
+        /* Knockback when hurt (not optimal implementation)
+        else if(isHurt) {
+            int direction = (facingRight ? -1 : 1);
+            rigidbody.AddForce(new Vector2(200*direction, 20), ForceMode2D.Impulse);
+            isHurt = false;
+        }
+        */
         else {
             rigidbody.velocity = new Vector2(0, rigidbody.velocity.y);
         }

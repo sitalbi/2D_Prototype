@@ -287,7 +287,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1315270131}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: AttackPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3068,10 +3068,12 @@ GameObject:
   - component: {fileID: 2005185641}
   - component: {fileID: 2005185639}
   - component: {fileID: 2005185644}
+  - component: {fileID: 2005185640}
   - component: {fileID: 2005185643}
   - component: {fileID: 2005185645}
-  - component: {fileID: 2005185640}
-  m_Layer: 0
+  - component: {fileID: 2005185647}
+  - component: {fileID: 2005185646}
+  m_Layer: 10
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3167,7 +3169,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 5
+  m_Mass: 7
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -3205,6 +3207,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 5
   jumpForce: 35
+  isHurt: 0
 --- !u!95 &2005185644
 Animator:
   serializedVersion: 3
@@ -3242,6 +3245,33 @@ MonoBehaviour:
     m_Bits: 512
   attackRate: 3
   damageCost: 1
+--- !u!114 &2005185646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2005185638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19ffc61f48b6a394ca6dd42a5c6e2a75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 5
+  invincibilityTime: 1
+--- !u!114 &2005185647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2005185638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c199a751cc4bf147bb91acdc78eff87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyLayer: 9
 --- !u!1 &2035474398
 GameObject:
   m_ObjectHideFlags: 0
@@ -3401,7 +3431,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 2005185642}
   movementSpeed: 3
-  distanceFromPlayer: 0
+  rigidbody: {fileID: 0}
   canMove: 0
 --- !u!114 &2035474405
 MonoBehaviour:
@@ -3416,6 +3446,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 3
+  isDead: 0
 --- !u!114 &2035474406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3429,6 +3460,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackPoint: {fileID: 428078244}
+  attackRange: 0.5
   enemyLayers:
     serializedVersion: 2
     m_Bits: 1024

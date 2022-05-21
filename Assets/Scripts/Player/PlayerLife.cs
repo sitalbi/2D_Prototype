@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class PlayerDamage : MonoBehaviour
+public class PlayerLife : MonoBehaviour
 {
     [SerializeField] private float health;
     private SpriteRenderer _spriteRenderer;
@@ -8,17 +8,20 @@ public class PlayerDamage : MonoBehaviour
     [SerializeField]
     private float invincibilityTime;
     private Rigidbody2D rg2D;
+    private PlayerMovement _movement;
 
     // Start is called before the first frame update
     void Start()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
         rg2D = GetComponent<Rigidbody2D>();
+        _movement = GetComponent<PlayerMovement>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(health);
         if (Time.time < nextDamageTime) {
             _spriteRenderer.color = Color.grey;
         }
@@ -31,7 +34,7 @@ public class PlayerDamage : MonoBehaviour
         if (Time.time >= nextDamageTime) {
             health -= damageCost;
             nextDamageTime = Time.time + invincibilityTime;
-            rg2D.AddForce(new Vector2(0, 50), ForceMode2D.Impulse);
+            _movement.isHurt = true;
         }
     }
 }
