@@ -31,7 +31,6 @@ public class EnemyAttack : MonoBehaviour
         _movement.canMove = Time.time >= nextAttackTime;
         if (Time.time >= nextAttackTime) { 
             if (_movement.distanceFromPlayer <= 2f) {
-                Debug.Log("Attack");
                 Attack();
             }
         }

@@ -6,6 +6,7 @@ public class EnemyLife : MonoBehaviour
 {
     [SerializeField] private float health;
     private Animator _animator;
+    public bool isDead;
     
     // Start is called before the first frame update
     void Start() {
@@ -17,14 +18,10 @@ public class EnemyLife : MonoBehaviour
     {
         if (health <= 0) {
             //Death
+            _animator.SetTrigger("Death");
             GetComponent<EnemyMovement>().enabled = false;
-            _animator.Play("goblin_death");
-            Destroy(this.gameObject, _animator.GetCurrentAnimatorStateInfo(0).length+0.5f);
+            Destroy(this.gameObject, _animator.GetCurrentAnimatorStateInfo(0).length);
         }
-    }
-
-    private void Death() {
-        enabled = false;
     }
 
     public void takeDamage(float damageCost) {

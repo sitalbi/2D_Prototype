@@ -9,7 +9,7 @@ public class EnemyMovement : MonoBehaviour
     public float distanceFromPlayer;
 
     private Animator animator;
-    private Rigidbody2D rigidbody;
+    public Rigidbody2D rigidbody;
     private bool facingRight = true;
     private int playerWay;
     public bool canMove = true;
