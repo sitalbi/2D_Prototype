@@ -8,26 +8,36 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] 
     private int movementSpeed;
-    [SerializeField] 
-    private float jumpForce,
-        dashForce;
+
+    [SerializeField] private float jumpForce,
+        dashDuration,
+        dashForce,
+        dashCoolDown;
 
     [SerializeField] 
-    private Transform groundCheck;
+    private Transform groundCheck,
+        wallCheck;
+
     [SerializeField] 
-    private LayerMask groundLayer;
+    private LayerMask groundLayer,
+        wallLayer;
 
     private Animator _animator;
     private Rigidbody2D _rigidbody;
+
+    private int _facingDirection = 1;
 
     private bool _facingRight = true;
     private bool _isGrounded;
     private bool _canJump;
     private bool _canDash;
     private bool _isDashing;
+    private bool _canMove;
+    private bool isTouchingWall;
     
     private float _horizontalAxis;
-    private float _nextDashTime;
+    private float dashTimeLeft;
+    private float dashCoolDownLeft;
 
     // Start is called before the first frame update
     void Start() {
@@ -41,50 +51,63 @@ public class PlayerController : MonoBehaviour
         CheckDirection();
         UpdateAnimations();
         CheckCanAction();
-
-        //canJump = Mathf.Abs(rigidbody.velocity.y) == 0;
-
-        // Reinitialize isDashing variable
-        /*if (!canDash) {
-            isDashing = false;
-        }*/
     }
 
     void FixedUpdate() {
         ApplyMovement();
         CheckSurroundings();
-        /*//Dash
-        if (Input.GetKey(KeyCode.Space) && !canJump && canDash) {
-            canDash = false;
-            isDashing = true;
-            rigidbody.AddForce(new Vector2(dashForce*horizontalAxis,0), ForceMode2D.Impulse);
-        }*/
+        ApplyDash();
     }
 
     private void CheckCanAction() {
         // Can jump (for double jump: use an integer numberOfJumpLeft & check if it is > 0)
         if (_isGrounded) {
-            _canJump = true;
+            if(!_isDashing) _canJump = true;
+            else {
+                _canJump = false;
+            }
         }
         else {
             _canJump = false;
         }
+
+        // Case dashing
+        if (_isDashing) {
+            _canDash = false;
+            _canMove = false;
+        }
+        else {
+            dashCoolDownLeft -= Time.deltaTime;
+            _canDash = dashCoolDownLeft <= 0;
+            _canMove = true;
+        }
     }
 
     private void CheckSurroundings() {
-        _isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.5f, groundLayer);
+        _isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.1f, groundLayer);
+        isTouchingWall = Physics2D.OverlapCircle(wallCheck.position, 0.1f, wallLayer);
     }
 
     private void CheckInput() {
         _horizontalAxis = Input.GetAxisRaw("Horizontal");
         
         //Jump input
-        if (Input.GetKey("up") && _canJump) {
+        if (Input.GetKeyDown("up") && _canJump) {
             Jump();
+        }
+        
+        //Dash input
+        if (Input.GetKeyDown(KeyCode.Space) && _canDash) {
+            DashInput();
         }
     }
 
-    
+    private void DashInput() {
+        _isDashing = true;
+        dashTimeLeft = dashDuration;
+    }
+
+
     private void CheckDirection() {
         //Flip the player according to the direction
         if(_horizontalAxis < 0 && _facingRight)
@@ -94,10 +117,29 @@ public class PlayerController : MonoBehaviour
         {
             Flip();
         }
+
+        _facingDirection = _facingRight ? 1 : -1;
     }
 
     private void ApplyMovement() {
-        _rigidbody.velocity = new Vector2(movementSpeed*_horizontalAxis, _rigidbody.velocity.y);
+        if (_canMove) {
+            _rigidbody.velocity = new Vector2(movementSpeed*_horizontalAxis, _rigidbody.velocity.y);
+        }
+    }
+
+    private void ApplyDash() {
+        if (_isDashing) {
+            if (dashTimeLeft > 0) {
+                _rigidbody.velocity = new Vector2(dashForce * _facingDirection, _rigidbody.velocity.y);
+                dashTimeLeft -= Time.deltaTime;
+            }
+
+            if (dashTimeLeft <= 0 ||isTouchingWall) {
+                _isDashing = false;
+                dashCoolDownLeft = dashCoolDown;
+            }
+
+        }
     }
 
     private void Jump() {
