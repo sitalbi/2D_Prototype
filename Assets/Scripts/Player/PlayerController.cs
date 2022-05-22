@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D _rigidbody;
 
     private int _facingDirection = 1;
+    private int jumpLeft = 2;
 
     private bool _facingRight = true;
     private bool _isGrounded;
@@ -62,13 +63,21 @@ public class PlayerController : MonoBehaviour
     private void CheckCanAction() {
         // Can jump (for double jump: use an integer numberOfJumpLeft & check if it is > 0)
         if (_isGrounded) {
-            if(!_isDashing) _canJump = true;
+            jumpLeft = 1;
+            if (!_isDashing) {
+                _canJump = true;
+            }
             else {
                 _canJump = false;
             }
         }
         else {
-            _canJump = false;
+            if (jumpLeft >= 1) {
+                _canJump = true;
+            }
+            else {
+                _canJump = false;
+            }
         }
 
         // Case dashing
@@ -143,6 +152,7 @@ public class PlayerController : MonoBehaviour
     }
 
     private void Jump() {
+        jumpLeft--;
         _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, jumpForce);
     }
 
