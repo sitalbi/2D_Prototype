@@ -8,14 +8,14 @@ public class PlayerLife : MonoBehaviour
     [SerializeField]
     private float invincibilityTime;
     private Rigidbody2D rg2D;
-    private PlayerMovement _movement;
+    private PlayerController _controller;
 
     // Start is called before the first frame update
     void Start()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
         rg2D = GetComponent<Rigidbody2D>();
-        _movement = GetComponent<PlayerMovement>();
+        _controller = GetComponent<PlayerController>();
     }
 
     // Update is called once per frame

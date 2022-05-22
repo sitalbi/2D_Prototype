@@ -12,12 +12,12 @@ public class PlayerCollisions : MonoBehaviour
     private int tilemapLayer;
 
     private PlayerLife _playerDamage;
-    private PlayerMovement _playerMovement;
+    private PlayerController _playerController;
 
     // Start is called before the first frame update
     void Start() {
         _playerDamage = GetComponent<PlayerLife>();
-        _playerMovement = GetComponent<PlayerMovement>();
+        _playerController = GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
@@ -29,8 +29,6 @@ public class PlayerCollisions : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision) {
         if (collision.gameObject.layer == enemyLayer) {
             _playerDamage.takeDamage(1);
-        } else if (collision.gameObject.layer == tilemapLayer) {
-            _playerMovement.canDash = true;
-        }
+        } 
     }
 }

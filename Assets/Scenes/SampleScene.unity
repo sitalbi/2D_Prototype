@@ -3144,7 +3144,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.015164852, y: -0.06824207}
+  m_Offset: {x: 0.011796713, y: -0.06824207}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -3155,7 +3155,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.23769188, y: 0.43835145}
+  m_Size: {x: 0.20850086, y: 0.43835145}
   m_EdgeRadius: 0
 --- !u!50 &2005185641
 Rigidbody2D:
@@ -3207,7 +3207,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 5
   jumpForce: 35
-  isHurt: 0
+  dashForce: 200
+  reducedSpeed: 1
+  canDash: 0
 --- !u!95 &2005185644
 Animator:
   serializedVersion: 3
@@ -3272,6 +3274,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyLayer: 9
+  tilemapLayer: 8
 --- !u!1 &2035474398
 GameObject:
   m_ObjectHideFlags: 0
@@ -3393,8 +3396,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.025406277, y: -0.099419154}
-  m_Size: {x: 0.16778085, y: 0.31580484}
+  m_Offset: {x: 0.008284202, y: -0.12359165}
+  m_Size: {x: 0.17785262, y: 0.26746}
   m_Direction: 0
 --- !u!50 &2035474403
 Rigidbody2D:
