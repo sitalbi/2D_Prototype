@@ -2,4 +2,7 @@
 
 To do list:
 
-- Refactor the code to use less class (example: merge attack manager and life manager)
+3 types of enemies:
+  - peaceful (no attack)
+  - attack if close enough
+  - follow and attack when close enough
