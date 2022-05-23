@@ -6,3 +6,5 @@ To do list:
   - peaceful (no attack)
   - attack if close enough
   - follow and attack when close enough
+
+Add states for the state machine such as Attack player/Follow player/etc..
