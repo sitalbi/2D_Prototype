@@ -112,14 +112,16 @@ public class BasicEnemyController : MonoBehaviour
     // ATTACK STATE
 
     private void EnterAttackState() {
-        attackStartTime = Time.time;
         _animator.SetTrigger("Attack");
         attackLength = _animator.GetCurrentAnimatorStateInfo(0).length + attackRate;
+        attackStartTime = Time.time;
     }
     
     private void UpdateAttackState() {
-        if (Time.time >= attackLength + attackStartTime) { 
-            SwitchState(State.Move);
+        if (Time.time >= attackLength + attackStartTime) {
+            if (!playerDetected) {
+                SwitchState(State.Move);
+            }
         }
     }
 

@@ -56,9 +56,9 @@ public class PlayerAttackController : MonoBehaviour
         attackDetails[0] = _damageCost;
         attackDetails[1] = gameObject.transform.position.x;
         
-        foreach (Collider2D collider in hitObject) {
+        /*foreach (Collider2D collider in hitObject) {
             collider.SendMessage("Damage", attackDetails);
-        }
+        }*/
     }
     
 }
