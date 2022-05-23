@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,7 +11,7 @@ public class Entity : MonoBehaviour
     public Animator animator { get; private set; }
     public int facingDirection { get; private set; }
 
-    [SerializeField] private Transform wallCheck, ledgeCheck;
+    [SerializeField] private Transform wallCheck, ledgeCheck, playerCheck;
     
     private Vector2 velocityVector;
 
@@ -46,8 +47,27 @@ public class Entity : MonoBehaviour
             entityData.groundLayer);
     }
 
+    public virtual bool CheckInAgroRange() {
+        return Physics2D.Raycast(playerCheck.position, transform.right, entityData.agroDistance, entityData.playerLayer) 
+               || Physics2D.Raycast(playerCheck.position, -transform.right, entityData.agroDistance, entityData.playerLayer);
+    }
+
+    public virtual int PlayerDirection() {
+        if (Physics2D.Raycast(playerCheck.position, transform.right, entityData.agroDistance,entityData.playerLayer)) {
+            return -1;
+        } else if (Physics2D.Raycast(playerCheck.position, transform.right * -1, entityData.agroDistance,entityData.playerLayer)) {
+            return 1;
+        }
+        return 0;
+    }
+
     public virtual void Flip() {
         facingDirection *= -1;
         transform.Rotate(0.0f, 180.0f, 0.0f);
+    }
+
+    public void OnDrawGizmos() {
+        Gizmos.DrawLine(playerCheck.position, playerCheck.position + (Vector3)(Vector2.right * facingDirection * entityData.agroDistance));
+        Gizmos.DrawLine(playerCheck.position, playerCheck.position + (Vector3)(-Vector2.right * facingDirection * entityData.agroDistance));
     }
 }

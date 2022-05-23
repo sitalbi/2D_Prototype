@@ -24,6 +24,10 @@ public class E1_IdleState : IdleState
         if (isIdleTimeOver) {
             stateMachine.ChangeState(enemy.moveState);
         }
+        
+        if (isPlayerDetected) {
+            stateMachine.ChangeState(enemy.followState);
+        }
     }
 
     public override void PhysicsUpdate() {

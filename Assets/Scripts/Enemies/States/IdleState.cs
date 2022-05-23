@@ -6,7 +6,7 @@ public class IdleState : State
 {
     protected IdleStateData stateData;
 
-    protected bool flipAfterIdle, isIdleTimeOver;
+    protected bool flipAfterIdle, isIdleTimeOver, isPlayerDetected;
 
     protected float idleTime;
 
@@ -20,6 +20,7 @@ public class IdleState : State
         
         entity.SetVelocity(0f);
         isIdleTimeOver = false;
+        isPlayerDetected = entity.CheckInAgroRange();
         SetRandomIdleTime();
     }
 
@@ -41,6 +42,8 @@ public class IdleState : State
 
     public override void PhysicsUpdate() {
         base.PhysicsUpdate();
+        
+        isPlayerDetected = entity.CheckInAgroRange();
     }
 
     public void SetFlipAfterIdle(bool flip) {

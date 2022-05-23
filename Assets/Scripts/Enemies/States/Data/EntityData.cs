@@ -8,5 +8,7 @@ public class EntityData : ScriptableObject
    public float wallCheckDistance = 0.2f;
    public float ledgeCheckDistance = 0.4f;
 
-   public LayerMask groundLayer;
+   public float agroDistance = 3f;
+
+   public LayerMask groundLayer, playerLayer;
 }

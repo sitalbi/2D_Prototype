@@ -6,7 +6,7 @@ public class MoveState : State
 {
     protected MoveStateData stateData;
 
-    protected bool isDetectingWall, isDetectingLedge;
+    protected bool isDetectingWall, isDetectingLedge, isDetectingPlayer;
 
     public MoveState(Entity entity, FinalStateMachine stateMachine, string animBoolParameterName,
         MoveStateData stateData) : base(entity, stateMachine, animBoolParameterName) {
@@ -19,6 +19,7 @@ public class MoveState : State
 
         isDetectingLedge = entity.CheckLedge();
         isDetectingWall = entity.CheckWall();
+        isDetectingPlayer = entity.CheckInAgroRange();
     }
 
     public override void Exit() {
@@ -34,5 +35,6 @@ public class MoveState : State
         
         isDetectingLedge = entity.CheckLedge();
         isDetectingWall = entity.CheckWall();
+        isDetectingPlayer = entity.CheckInAgroRange();
     }
 }
