@@ -40,6 +40,11 @@ public class Entity : MonoBehaviour
         rigidbody.velocity = velocityVector;
     }
 
+    public virtual void SetVelocity(Vector2 velocity) {
+        velocityVector.Set(velocity.x,velocity.y);
+        rigidbody.velocity = velocityVector;
+    }
+    
     public virtual bool CheckWall() {
         return Physics2D.Raycast(wallCheck.position, transform.right, entityData.wallCheckDistance,
             entityData.groundLayer);
@@ -72,6 +77,11 @@ public class Entity : MonoBehaviour
     public virtual void Flip() {
         facingDirection *= -1;
         transform.Rotate(0.0f, 180.0f, 0.0f);
+    }
+
+
+    public virtual void Death() {
+        //TODO: play animation and set death sprite
     }
 
     /*

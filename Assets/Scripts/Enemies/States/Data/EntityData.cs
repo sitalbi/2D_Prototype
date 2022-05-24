@@ -5,6 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "newEntityData", menuName = "Data/EntityData/Base_Data")]
 public class EntityData : ScriptableObject
 {
+   public float health = 5;
+   
    public float wallCheckDistance = 0.2f;
    public float ledgeCheckDistance = 0.4f;
 
