@@ -27,11 +27,12 @@ public class FollowState : State
     public override void LogicUpdate() {
         base.LogicUpdate();
 
-        playerDetected = entity.CheckInAgroRange();
     }
 
     public override void PhysicsUpdate() {
         base.PhysicsUpdate();
+        playerDetected = entity.CheckInAgroRange();
         
+        entity.SetVelocity(stateData.movementSpeed);
     }
 }

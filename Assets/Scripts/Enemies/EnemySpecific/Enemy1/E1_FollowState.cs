@@ -27,12 +27,12 @@ public class E1_FollowState : FollowState
         base.PhysicsUpdate();
         
         if (playerDetected) {
-            if (enemy.facingDirection != enemy.PlayerDirection()) {
+            if (enemy.PlayerDirection() == -1) {
                 enemy.Flip();
             }
         }
         else {
-            entity.stateMachine.ChangeState(enemy.moveState);
+            entity.stateMachine.ChangeState(enemy.idleState);
         }
         
     }
