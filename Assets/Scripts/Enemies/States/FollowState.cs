@@ -5,7 +5,7 @@ using UnityEngine;
 public class FollowState : State
 {
     private FollowStateData stateData;
-    protected bool isFollowing, playerDetected;
+    protected bool isFollowing, playerDetected, inAttackRange;
 
     public FollowState(Entity entity, FinalStateMachine stateMachine, string animBoolParameterName, FollowStateData stateData) : base(entity, stateMachine, animBoolParameterName) {
         this.stateData = stateData;
@@ -32,7 +32,7 @@ public class FollowState : State
     public override void PhysicsUpdate() {
         base.PhysicsUpdate();
         playerDetected = entity.CheckInAgroRange();
-        
+        inAttackRange = entity.CheckInAttackRange();
         entity.SetVelocity(stateData.movementSpeed);
     }
 }

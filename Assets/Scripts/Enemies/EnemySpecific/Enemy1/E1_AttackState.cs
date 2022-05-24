@@ -13,6 +13,8 @@ public class E1_AttackState : AttackState
 
     public override void Enter() {
         base.Enter();
+        
+        entity.atsm._attackState = this;
     }
 
     public override void Exit() {
@@ -21,6 +23,15 @@ public class E1_AttackState : AttackState
 
     public override void LogicUpdate() {
         base.LogicUpdate();
+
+        if (isAttackFinished) {
+            if (isPlayerInRange) {
+                stateMachine.ChangeState(enemy.followState);
+            }
+            else {
+                stateMachine.ChangeState(enemy.moveState);
+            }
+        }
     }
 
     public override void PhysicsUpdate() {

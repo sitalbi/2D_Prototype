@@ -9,7 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf27d0bfc1d543249900eb57db313eda, type: 3}
-  m_Name: E1_MoveStateData
+  m_Script: {fileID: 11500000, guid: 45acd59a8607ac2448766b88229f009e, type: 3}
+  m_Name: E1_AttackStateData
   m_EditorClassIdentifier: 
-  movementSpeed: 2
+  damageCost: 1
+  attackRange: 0.3
+  enemyLayers:
+    serializedVersion: 2
+    m_Bits: 0

@@ -28,7 +28,10 @@ public class PlayerCollisions : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision) {
         if (collision.gameObject.layer == enemyLayer) {
-            _playerDamage.takeDamage(1);
+            AttackDetails attackDetails = new AttackDetails();
+            attackDetails.damageCost = 1;
+            attackDetails.position = collision.transform.position;
+            _playerDamage.Damage(attackDetails);
         } 
     }
 }

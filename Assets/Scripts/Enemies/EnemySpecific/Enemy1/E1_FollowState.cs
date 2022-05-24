@@ -30,6 +30,9 @@ public class E1_FollowState : FollowState
             if (enemy.PlayerDirection() == -1) {
                 enemy.Flip();
             }
+            if (inAttackRange) {
+                entity.stateMachine.ChangeState(enemy.attackState);
+            }
         }
         else {
             entity.stateMachine.ChangeState(enemy.idleState);

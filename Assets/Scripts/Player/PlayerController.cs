@@ -33,8 +33,9 @@ public class PlayerController : MonoBehaviour
     private bool _canJump;
     private bool _canDash;
     private bool _isDashing;
-    private bool _canMove;
+    public bool _canMove;
     private bool isTouchingWall;
+    public bool isDamage;
     
     private float _horizontalAxis;
     private float dashTimeLeft;
@@ -89,6 +90,13 @@ public class PlayerController : MonoBehaviour
             dashCoolDownLeft -= Time.deltaTime;
             _canDash = dashCoolDownLeft <= 0;
             _canMove = true;
+        }
+
+        // Case damage
+        if (isDamage) {
+            _canJump = false;
+            _canMove = false;
+            _canDash = false;
         }
     }
 

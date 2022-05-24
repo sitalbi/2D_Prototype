@@ -7,10 +7,15 @@ public class Enemy1 : Entity
    public E1_IdleState idleState { get; private set; }
    public E1_MoveState moveState { get; private set; }
    public E1_FollowState followState { get; private set; }
+   
+   public E1_AttackState attackState { get; private set; }
 
    [SerializeField] private IdleStateData idleStateData;
    [SerializeField] private MoveStateData moveStateData;
    [SerializeField] private FollowStateData followStateData;
+   [SerializeField] private AttackStateData attackStateData;
+
+   [SerializeField] private Transform attackPoint;
 
    public override void Start() {
       base.Start();
@@ -18,6 +23,7 @@ public class Enemy1 : Entity
       moveState = new E1_MoveState(this, stateMachine, "move", moveStateData, this);
       idleState = new E1_IdleState(this, stateMachine, "idle", idleStateData, this);
       followState = new E1_FollowState(this, stateMachine, "move", followStateData, this);
+      attackState = new E1_AttackState(this, stateMachine, "attack", attackStateData, this, attackPoint);
       
       stateMachine.Initialize(idleState);
    }

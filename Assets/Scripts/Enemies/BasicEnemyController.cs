@@ -169,7 +169,7 @@ public class BasicEnemyController : MonoBehaviour
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, damageableLayer);
 
         foreach (Collider2D enemy in hitEnemies) {
-            enemy.gameObject.GetComponent<PlayerLife>().takeDamage(damageCost);
+            //enemy.gameObject.GetComponent<PlayerLife>().Damage(attackDetails);
         }
     }
 

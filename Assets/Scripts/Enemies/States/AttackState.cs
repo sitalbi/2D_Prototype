@@ -8,8 +8,11 @@ public class AttackState : State
 
     private Transform attackPoint;
 
-    private bool isAttackFinished;
-    
+    protected bool isAnimationFinished, isPlayerInRange, isAttackFinished;
+
+    protected AttackDetails attackDetails;
+    private float animationFinishTime;
+
     public AttackState(Entity entity, FinalStateMachine stateMachine, string animBoolParameterName, 
         AttackStateData stateData, Transform attackPoint) : base(entity, stateMachine, animBoolParameterName) {
             this.stateData = stateData;
@@ -20,8 +23,9 @@ public class AttackState : State
         base.Enter();
 
         isAttackFinished = false;
-        entity.atsm._attackState = this;
+        isAnimationFinished = false;
         entity.SetVelocity(0f);
+        isPlayerInRange = entity.CheckInAttackRange();
     }
 
     public override void Exit() {
@@ -30,10 +34,19 @@ public class AttackState : State
 
     public override void LogicUpdate() {
         base.LogicUpdate();
+
+        if (isAnimationFinished) {
+            if (Time.time >= animationFinishTime + stateData.attackCoolDown) {
+                isAttackFinished = true;
+            }
+        }
+        
     }
 
     public override void PhysicsUpdate() {
         base.PhysicsUpdate();
+        
+        isPlayerInRange = entity.CheckInAttackRange();
     }
     
     public void TriggerAttack() {
@@ -41,7 +54,8 @@ public class AttackState : State
 
         Collider2D[] hitObjects = Physics2D.OverlapCircleAll(attackPoint.position, stateData.attackRange, stateData.enemyLayers);
 
-        float[] attackDetails = { stateData.damageCost, entity.transform.position.x };
+        attackDetails.position = entity.transform.position;
+        attackDetails.damageCost = stateData.damageCost;
         
         foreach (Collider2D collider in hitObjects) {
             collider.SendMessage("Damage", attackDetails);
@@ -49,6 +63,8 @@ public class AttackState : State
     }
 
     public void FinishAttack() {
-        isAttackFinished = true;
+        isAnimationFinished = true;
+        attackPoint.gameObject.SetActive(false);
+        animationFinishTime = Time.time;
     }
 }
