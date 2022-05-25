@@ -21,18 +21,18 @@ public class E1_DamageState : DamageState
 
     public override void Exit() {
         base.Exit();
+
     }
 
     public override void LogicUpdate() {
         base.LogicUpdate();
+        
+        if (isAnimationFinished && enemy.health <= 0) {
+            stateMachine.ChangeState(enemy.deadState);
+        }
 
-        if (isDamageFinished) {
-            if (entity.health <= 0) {
-                stateMachine.ChangeState(enemy.deadState);
-            }
-            else {
-                stateMachine.ChangeState(enemy.idleState);
-            }
+        if (isDamageFinished) { 
+            stateMachine.ChangeState(enemy.idleState);
         }
     }
 

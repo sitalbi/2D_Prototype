@@ -86,8 +86,8 @@ public class Entity : MonoBehaviour
 
     public void Death(Sprite deadSprite, int deadLayer, float deathDelay) {
         gameObject.layer = deadLayer;
-        animator.enabled = false;
         spriteRenderer.sprite = deadSprite;
+        animator.enabled = false;
         Destroy(gameObject,deathDelay);
     }
 
