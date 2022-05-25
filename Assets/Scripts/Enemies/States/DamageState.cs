@@ -6,9 +6,7 @@ public class DamageState : State
 {
     private DamageStateData stateData;
 
-    private bool isTakingDamage;
-
-    private float animationTime;
+    protected bool isDamageFinished;
     
     public AttackDetails attackDetails { private get; set; }
     
@@ -19,10 +17,12 @@ public class DamageState : State
 
     public override void Enter() {
         base.Enter();
-
+        
+        isDamageFinished = false;
         // Compute the direction of the knockback using attackdetails position
-        isTakingDamage = true;
-        Vector2 knockback = new Vector2(attackDetails.damageCost * 3,attackDetails.damageCost * 2);
+        float position = entity.transform.position.x - attackDetails.position.x;
+        int knockbackDirection = position > 0 ? 1 : -1;  
+        Vector2 knockback = new Vector2(knockbackDirection * (attackDetails.damageCost * 5),attackDetails.damageCost * 2);
         entity.SetVelocity(knockback);
     }
 
@@ -32,18 +32,14 @@ public class DamageState : State
 
     public override void LogicUpdate() {
         base.LogicUpdate();
-
-        if (Time.time >= startTime + animationTime) {
-            isTakingDamage = false;
-            
-        }
-
-        if(animationTime!=0) animationTime = entity.animator.GetCurrentAnimatorStateInfo(0).length;
     }
 
     public override void PhysicsUpdate() {
         base.PhysicsUpdate();
     }
 
-    
+
+    public void FinishDamage() {
+        isDamageFinished = true;
+    }
 }

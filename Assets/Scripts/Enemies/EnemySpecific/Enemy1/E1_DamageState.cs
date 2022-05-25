@@ -14,6 +14,8 @@ public class E1_DamageState : DamageState
 
     public override void Enter() {
         base.Enter();
+
+        entity.atsm._damagesState = this;
     }
 
     public override void Exit() {
@@ -22,6 +24,10 @@ public class E1_DamageState : DamageState
 
     public override void LogicUpdate() {
         base.LogicUpdate();
+        
+        if (isDamageFinished) {
+            stateMachine.ChangeState(enemy.idleState);
+        }
     }
 
     public override void PhysicsUpdate() {

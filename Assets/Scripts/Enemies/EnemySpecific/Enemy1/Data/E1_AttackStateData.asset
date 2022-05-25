@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: E1_AttackStateData
   m_EditorClassIdentifier: 
   damageCost: 1
-  attackRange: 0.3
+  attackRange: 0.4
   attackCoolDown: 0.5
   enemyLayers:
     serializedVersion: 2

@@ -50,15 +50,15 @@ public class PlayerAttackController : MonoBehaviour
     }
 
     private void Attack() {
-        Collider2D[] hitObject = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+        Collider2D[] hitObjects = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
-        float[] attackDetails = new float[2];
-        attackDetails[0] = _damageCost;
-        attackDetails[1] = gameObject.transform.position.x;
+        AttackDetails attackDetails = new AttackDetails();
+        attackDetails.damageCost = _damageCost;
+        attackDetails.position = gameObject.transform.position;
         
-        /*foreach (Collider2D collider in hitObject) {
-            collider.SendMessage("Damage", attackDetails);
-        }*/
+        foreach (Collider2D hitObject in hitObjects) {
+            hitObject.SendMessage("Damage", attackDetails);
+        }
     }
     
 }
