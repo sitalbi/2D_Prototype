@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e67874412a0a2314eb3d2d9292a51052, type: 3}
   m_Name: E1_DeadStateData
   m_EditorClassIdentifier: 
-  deadSprite: {fileID: 0}
-  deathDelay: 0
-  deadLayer:
-    serializedVersion: 2
-    m_Bits: 0
+  deadSprite: {fileID: 1400002288684528572, guid: 7cf9060b1a18e5448bdc36637a247411,
+    type: 3}
+  deathDelay: 2
+  deadLayerValue: 11

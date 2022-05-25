@@ -10,8 +10,8 @@ public class PlayerAttackController : MonoBehaviour
     private float attackRate;
     [SerializeField] 
     private float _damageCost;
-    
-    private float attackRange = 0.6f;
+    [SerializeField] 
+    private float attackRange;
     private float _nextAttackTime = 0f; 
     
     private bool _gotInput;
