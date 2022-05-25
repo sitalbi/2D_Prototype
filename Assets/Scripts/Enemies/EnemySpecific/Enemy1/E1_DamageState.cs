@@ -16,6 +16,7 @@ public class E1_DamageState : DamageState
         base.Enter();
 
         entity.atsm._damagesState = this;
+        entity.health -= attackDetails.damageCost;
     }
 
     public override void Exit() {
@@ -24,14 +25,23 @@ public class E1_DamageState : DamageState
 
     public override void LogicUpdate() {
         base.LogicUpdate();
-        
+
         if (isDamageFinished) {
-            stateMachine.ChangeState(enemy.idleState);
+            if (entity.health <= 0) {
+                stateMachine.ChangeState(enemy.deadState);
+            }
+            else {
+                stateMachine.ChangeState(enemy.idleState);
+            }
         }
     }
 
     public override void PhysicsUpdate() {
         base.PhysicsUpdate();
+
+        if (isAnimationFinished) {
+            enemy.SetVelocity(0f);
+        }
     }
 
 }

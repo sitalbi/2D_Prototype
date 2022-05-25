@@ -10,6 +10,7 @@ public class Entity : MonoBehaviour
     public EntityData entityData;
     public Rigidbody2D rigidbody { get; private set; }
     public Animator animator { get; private set; }
+    public SpriteRenderer spriteRenderer { get; private set; }
     public int facingDirection { get; private set; }
     
     public AnimationToStateMachine atsm { get; private set; }
@@ -18,11 +19,15 @@ public class Entity : MonoBehaviour
     
     private Vector2 velocityVector;
 
+    public float health { get; set; }
+
     public virtual void Start() {
         rigidbody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         atsm = GetComponent<AnimationToStateMachine>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         facingDirection = 1;
+        health = entityData.health;
 
         stateMachine = new FinalStateMachine();
     }
@@ -79,9 +84,11 @@ public class Entity : MonoBehaviour
         transform.Rotate(0.0f, 180.0f, 0.0f);
     }
 
-
-    public virtual void Death() {
-        //TODO: play animation and set death sprite
+    public void Death(Sprite deadSprite, int deadLayer, float deathDelay) {
+        gameObject.layer = deadLayer;
+        animator.enabled = false;
+        spriteRenderer.sprite = deadSprite;
+        Destroy(gameObject,deathDelay);
     }
 
     /*

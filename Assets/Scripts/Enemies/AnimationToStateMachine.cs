@@ -6,6 +6,7 @@ namespace Enemies
     {
         public AttackState _attackState;
         public DamageState _damagesState;
+        public DeadState _deadsState;
 
         public void TriggerAttack() {
             _attackState.TriggerAttack();
@@ -17,6 +18,14 @@ namespace Enemies
 
         public void FinishDamage() {
             _damagesState.FinishDamage();
+        }
+
+        public void FinishDamageAnimation() {
+            _damagesState.FinishDamageAnimation();
+        }
+
+        public void FinishDeathAnimation() {
+            _deadsState.FinishDeathAnimation();
         }
     }
 }

@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class DamageState : State
 {
-    private DamageStateData stateData;
+    protected DamageStateData stateData;
 
-    protected bool isDamageFinished;
-    
-    public AttackDetails attackDetails { private get; set; }
+    protected bool isAnimationFinished, isDamageFinished;
+
+    public AttackDetails attackDetails { get; set; }
     
     public DamageState(Entity entity, FinalStateMachine stateMachine, 
         string animBoolParameterName, DamageStateData stateData) : base(entity, stateMachine, animBoolParameterName) {
@@ -19,6 +19,7 @@ public class DamageState : State
         base.Enter();
         
         isDamageFinished = false;
+        isAnimationFinished = false;
         // Compute the direction of the knockback using attackdetails position
         float position = entity.transform.position.x - attackDetails.position.x;
         int knockbackDirection = position > 0 ? 1 : -1;  
@@ -39,6 +40,9 @@ public class DamageState : State
     }
 
 
+    public void FinishDamageAnimation() {
+        isAnimationFinished = true;
+    }
     public void FinishDamage() {
         isDamageFinished = true;
     }
