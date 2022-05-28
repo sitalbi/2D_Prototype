@@ -73,7 +73,7 @@ public class PlayerController : MonoBehaviour
             }
         }
         else {
-            if (jumpLeft >= 1) {
+            if (jumpLeft >= 1 && _rigidbody.velocity.y <= 0) {
                 _canJump = true;
             }
             else {
