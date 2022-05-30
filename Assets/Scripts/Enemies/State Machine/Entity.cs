@@ -6,13 +6,14 @@ using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
+    [SerializeField] private GameObject heartPrefab;
     public FinalStateMachine stateMachine;
     public EntityData entityData;
     public Rigidbody2D rigidbody { get; private set; }
     public Animator animator { get; private set; }
     public SpriteRenderer spriteRenderer { get; private set; }
     public int facingDirection { get; private set; }
-    
+
     public AnimationToStateMachine atsm { get; private set; }
 
     [SerializeField] private Transform wallCheck, ledgeCheck, playerCheck;
@@ -85,6 +86,9 @@ public class Entity : MonoBehaviour
     }
 
     public void Death(Sprite deadSprite, int deadLayer, float deathDelay) {
+        if (gameObject.layer != deadLayer) {
+            Instantiate(heartPrefab, gameObject.transform.position, Quaternion.identity);
+        }
         gameObject.layer = deadLayer;
         spriteRenderer.sprite = deadSprite;
         animator.enabled = false;

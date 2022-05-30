@@ -28,8 +28,15 @@ public class Health : MonoBehaviour
         if (health < 0) {
             health = 0;
         }
-        for (int i = health; i < images.Length; i++) {
-            images[i].sprite = emptyHeart;
+        if (health > images.Length) {
+            return;
+        }
+        for (int i = 0; i < images.Length; i++) {
+            if (i < health) {
+                images[i].sprite = fullHeart;
+            } else {
+                images[i].sprite = emptyHeart;
+            }
         }
     }
 }

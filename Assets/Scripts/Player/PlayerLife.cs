@@ -26,6 +26,7 @@ public class PlayerLife : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         _spriteRenderer = GetComponent<SpriteRenderer>();
         rg2D = GetComponent<Rigidbody2D>();
         _controller = GetComponent<PlayerController>();
@@ -59,5 +60,10 @@ public class PlayerLife : MonoBehaviour
             nextDamageTime = Time.time + data.invincibilityTime;
             healthBar.SetHealth((int)currentHealth);
         }
+    }
+
+    public void HealthIncrease() {
+        currentHealth+=1;
+        healthBar.SetHealth((int)currentHealth);
     }
 }

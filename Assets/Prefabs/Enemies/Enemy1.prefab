@@ -219,6 +219,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e4a3f960c20bb24a99c0ffa30df70f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  heartPrefab: {fileID: 3184190328982253824, guid: 363e473c3ba2abc4db6643dac63f7130,
+    type: 3}
   entityData: {fileID: 11400000, guid: e333f276a924bdd47b71a8a5f88ccdb1, type: 2}
   wallCheck: {fileID: 1374253522881473537}
   ledgeCheck: {fileID: 1374253523644200953}

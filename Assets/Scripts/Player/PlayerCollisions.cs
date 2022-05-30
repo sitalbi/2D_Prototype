@@ -6,10 +6,7 @@ using UnityEngine;
 public class PlayerCollisions : MonoBehaviour
 {
     [SerializeField]
-    private int enemiesLayer, propsLayer;
-
-    [SerializeField] 
-    private int tilemapLayer;
+    private int enemiesLayer, propsLayer,collectableLayer;
 
     private PlayerLife _playerDamage;
     private PlayerController _playerController;
@@ -32,7 +29,11 @@ public class PlayerCollisions : MonoBehaviour
             attackDetails.damageCost = 1;
             attackDetails.position = collision.transform.position;
             _playerDamage.Damage(attackDetails);
-        } 
+        } else if (collision.gameObject.layer == collectableLayer) {
+            PlayerStats playerStats = new PlayerStats();
+            playerStats.playerLife = _playerDamage;
+            collision.gameObject.SendMessage("Collect", _playerDamage);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D col) {
