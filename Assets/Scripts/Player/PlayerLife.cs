@@ -1,16 +1,14 @@
-﻿using System.ComponentModel.Design.Serialization;
+﻿using System;
+using System.ComponentModel.Design.Serialization;
 using UnityEngine;
 
 public class PlayerLife : MonoBehaviour
 {
-    [SerializeField] 
-    private float health;
-    
-    [SerializeField]
-    private float invincibilityTime;
 
     [SerializeField] 
-    private HealthBar healthBar;
+    private PlayerData data;
+    [SerializeField] 
+    private Health healthBar;
     
     private Rigidbody2D rg2D;
     
@@ -18,9 +16,12 @@ public class PlayerLife : MonoBehaviour
     
     private SpriteRenderer _spriteRenderer;
 
+    [NonSerialized]
     public bool isDamage;
     
     private float damageDuration, damageStart, nextDamageTime;
+
+    private float currentHealth;
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +30,7 @@ public class PlayerLife : MonoBehaviour
         rg2D = GetComponent<Rigidbody2D>();
         _controller = GetComponent<PlayerController>();
         damageDuration = 0.3f;
-        healthBar.SetMaxHealth(health);
+        currentHealth = data.health;
     }
 
     // Update is called once per frame
@@ -53,10 +54,10 @@ public class PlayerLife : MonoBehaviour
             _controller.isDamage = true;
             float direction = transform.position.x - attackDetails.position.x;
             int knockbackDirection = direction > 0 ? 1 : -1;
-            health -= attackDetails.damageCost;
+            currentHealth -= attackDetails.damageCost;
             rg2D.velocity = new Vector2((knockbackDirection * attackDetails.damageCost * 3), attackDetails.damageCost*2);
-            nextDamageTime = Time.time + invincibilityTime;
-            healthBar.SetHealth(health);
+            nextDamageTime = Time.time + data.invincibilityTime;
+            healthBar.SetHealth((int)currentHealth);
         }
     }
 }

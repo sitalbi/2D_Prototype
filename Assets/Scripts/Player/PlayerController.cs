@@ -7,14 +7,9 @@ using UnityEngine.Serialization;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] 
-    private int movementSpeed;
-
-    [SerializeField] private float jumpForce,
-        dashDuration,
-        dashForce,
-        dashCoolDown;
-
-    [SerializeField] 
+    private PlayerData data;
+    
+   [SerializeField] 
     private Transform groundCheck,
         wallCheck;
 
@@ -121,7 +116,7 @@ public class PlayerController : MonoBehaviour
 
     private void DashInput() {
         _isDashing = true;
-        dashTimeLeft = dashDuration;
+        dashTimeLeft = data.dashDuration;
     }
 
 
@@ -140,20 +135,20 @@ public class PlayerController : MonoBehaviour
 
     private void ApplyMovement() {
         if (_canMove) {
-            _rigidbody.velocity = new Vector2(movementSpeed*_horizontalAxis, _rigidbody.velocity.y);
+            _rigidbody.velocity = new Vector2(data.movementSpeed*_horizontalAxis, _rigidbody.velocity.y);
         }
     }
 
     private void ApplyDash() {
         if (_isDashing) {
             if (dashTimeLeft > 0) {
-                _rigidbody.velocity = new Vector2(dashForce * _facingDirection, _rigidbody.velocity.y);
+                _rigidbody.velocity = new Vector2(data.dashForce * _facingDirection, _rigidbody.velocity.y);
                 dashTimeLeft -= Time.deltaTime;
             }
 
             if (dashTimeLeft <= 0 ||isTouchingWall) {
                 _isDashing = false;
-                dashCoolDownLeft = dashCoolDown;
+                dashCoolDownLeft = data.dashCoolDown;
             }
 
         }
@@ -161,7 +156,7 @@ public class PlayerController : MonoBehaviour
 
     private void Jump() {
         jumpLeft--;
-        _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, jumpForce);
+        _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, data.jumpForce);
     }
 
     private void Flip()

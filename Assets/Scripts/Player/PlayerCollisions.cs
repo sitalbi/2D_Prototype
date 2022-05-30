@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerCollisions : MonoBehaviour
 {
     [SerializeField]
-    private int enemyLayer;
+    private int enemiesLayer, propsLayer;
 
     [SerializeField] 
     private int tilemapLayer;
@@ -27,11 +27,23 @@ public class PlayerCollisions : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
-        if (collision.gameObject.layer == enemyLayer) {
+        if (collision.gameObject.layer == enemiesLayer) {
             AttackDetails attackDetails = new AttackDetails();
             attackDetails.damageCost = 1;
             attackDetails.position = collision.transform.position;
             _playerDamage.Damage(attackDetails);
         } 
+    }
+
+    private void OnTriggerEnter2D(Collider2D col) {
+        if (col.gameObject.layer == propsLayer) {
+            col.gameObject.SendMessage("PlayerInRange");
+        }
+    }
+    
+    private void OnTriggerExit2D(Collider2D col) {
+        if (col.gameObject.layer == propsLayer) {
+            col.gameObject.SendMessage("PlayerExitRange");
+        }
     }
 }
