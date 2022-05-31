@@ -55,7 +55,9 @@ public class PlayerLife : MonoBehaviour
             _controller.isDamage = true;
             float direction = transform.position.x - attackDetails.position.x;
             int knockbackDirection = direction > 0 ? 1 : -1;
-            currentHealth -= attackDetails.damageCost;
+            if (currentHealth > 0) {
+                currentHealth -= attackDetails.damageCost;
+            }
             rg2D.velocity = new Vector2((knockbackDirection * attackDetails.damageCost * 3), attackDetails.damageCost*2);
             nextDamageTime = Time.time + data.invincibilityTime;
             healthBar.SetHealth((int)currentHealth);

@@ -29,6 +29,7 @@ public class DialogueUI : MonoBehaviour
         foreach (string dialogue in dialogueObject.Dialogue) {
             yield return typeWriterEffect.Run(dialogue, textLabel);
             yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.C));
+            yield return new WaitForSecondsRealtime(0.1f);
         }
         CloseDialogueBox();
     }

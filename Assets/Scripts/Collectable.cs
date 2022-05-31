@@ -7,6 +7,6 @@ public class Collectable : MonoBehaviour
 {
     public virtual void Collect(PlayerLife playerLife) {
         gameObject.SetActive(false);
-        Destroy(gameObject,5f);
+        Destroy(gameObject,2f);
     }
 }

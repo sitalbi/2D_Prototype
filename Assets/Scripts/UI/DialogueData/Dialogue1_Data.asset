@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Dialogue1_Data
   m_EditorClassIdentifier: 
   dialogue:
-  - 'Test numero 1
+  - 'Bonjour,
 
-    Explication'
-  - 2eme page
+    Je suis un panneau d''affichage'
+  - A la prochaine !
