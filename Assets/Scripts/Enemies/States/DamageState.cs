@@ -23,7 +23,7 @@ public class DamageState : State
         // Compute the direction of the knockback using attackdetails position
         float position = entity.transform.position.x - attackDetails.position.x;
         int knockbackDirection = position > 0 ? 1 : -1;  
-        Vector2 knockback = new Vector2(knockbackDirection * (attackDetails.damageCost * 5),attackDetails.damageCost * 2);
+        Vector2 knockback = new Vector2(knockbackDirection * (attackDetails.damageCost),attackDetails.damageCost*3);
         entity.SetVelocity(knockback);
     }
 
