@@ -18,13 +18,14 @@ public class DialogueUI : MonoBehaviour
     }
 
     public void ShowDialogue(DialogueObject dialogueObject) {
+        Time.timeScale = 0f;
         panel.SetActive(true);
         dialogueBox.SetActive(true);
         StartCoroutine(StepThroughDialogue(dialogueObject));
     }
 
     private IEnumerator StepThroughDialogue(DialogueObject dialogueObject) {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSecondsRealtime(1);
         foreach (string dialogue in dialogueObject.Dialogue) {
             yield return typeWriterEffect.Run(dialogue, textLabel);
             yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.C));
@@ -33,6 +34,7 @@ public class DialogueUI : MonoBehaviour
     }
 
     private void CloseDialogueBox() {
+        Time.timeScale = 1f;
         panel.SetActive(false);
         dialogueBox.SetActive(false);
         textLabel.text = string.Empty;

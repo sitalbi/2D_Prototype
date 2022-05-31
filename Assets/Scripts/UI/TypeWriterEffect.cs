@@ -16,7 +16,7 @@ public class TypeWriterEffect : MonoBehaviour
         int charIndex = 0;
 
         while (charIndex < textToType.Length) {
-            time += Time.deltaTime * typingSpeed;
+            time += Time.unscaledDeltaTime * typingSpeed;
             charIndex = Mathf.FloorToInt(time);
             charIndex = Mathf.Clamp(charIndex, 0, textToType.Length);
 
