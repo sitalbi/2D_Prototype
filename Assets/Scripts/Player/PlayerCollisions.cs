@@ -6,7 +6,9 @@ using UnityEngine;
 public class PlayerCollisions : MonoBehaviour
 {
     [SerializeField]
-    private int enemiesLayer, propsLayer,collectableLayer;
+    private int propsLayer,collectableLayer;
+
+    [SerializeField] private string enemyTag;
 
     private PlayerLife _playerDamage;
     private PlayerController _playerController;
@@ -24,7 +26,7 @@ public class PlayerCollisions : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
-        if (collision.gameObject.layer == enemiesLayer) {
+        if (collision.gameObject.tag == enemyTag) {
             AttackDetails attackDetails = new AttackDetails();
             attackDetails.damageCost = 1;
             attackDetails.position = collision.transform.position;
