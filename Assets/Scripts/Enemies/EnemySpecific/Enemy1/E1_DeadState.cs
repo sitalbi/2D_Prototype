@@ -24,9 +24,11 @@ public class E1_DeadState : DeadState
     
     public override void LogicUpdate() {
         base.LogicUpdate();
+        
+        enemy.gameObject.layer = stateData.deadLayerValue;
 
         if (isAnimationFinished) {
-            entity.Death(stateData.deadSprite, stateData.deadLayerValue, stateData.deathDelay);
+            entity.Death(stateData.deadSprite, stateData.deathDelay);
         }
     }
 

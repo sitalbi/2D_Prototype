@@ -85,11 +85,10 @@ public class Entity : MonoBehaviour
         transform.Rotate(0.0f, 180.0f, 0.0f);
     }
 
-    public void Death(Sprite deadSprite, int deadLayer, float deathDelay) {
-        if (gameObject.layer != deadLayer) {
+    public void Death(Sprite deadSprite, float deathDelay) {
+        if (animator.enabled) {
             Instantiate(heartPrefab, gameObject.transform.position, Quaternion.identity);
         }
-        gameObject.layer = deadLayer;
         spriteRenderer.sprite = deadSprite;
         animator.enabled = false;
         Destroy(gameObject,deathDelay);

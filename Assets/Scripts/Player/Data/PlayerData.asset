@@ -15,7 +15,10 @@ MonoBehaviour:
   health: 5
   invincibilityTime: 0.5
   movementSpeed: 5
-  jumpForce: 7
+  jumpForce: 10
+  fallMultiplier: 2.5
+  lowJumpMultiplier: 8
   dashDuration: 0.1
   dashForce: 25
   dashCoolDown: 0.3
+  doubleJump: 0

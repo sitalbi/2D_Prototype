@@ -12,8 +12,12 @@ public class PlayerData : ScriptableObject
     public int movementSpeed = 5;
 
     public float jumpForce = 7f;
+    public float fallMultiplier = 2.5f;
+    public float lowJumpMultiplier = 2f;
     public float dashDuration = 0.1f;
     public float dashForce = 25f;
     public float dashCoolDown = 0.3f;
-    
+
+    public bool doubleJump;
+
 }

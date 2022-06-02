@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D _rigidbody;
 
     private int _facingDirection = 1;
-    private int jumpLeft = 2;
+    private int jumpLeft;
 
     private bool _facingRight = true;
     private bool _isGrounded;
@@ -35,11 +35,14 @@ public class PlayerController : MonoBehaviour
     private float _horizontalAxis;
     private float dashTimeLeft;
     private float dashCoolDownLeft;
+    private bool isHolding;
 
     // Start is called before the first frame update
     void Start() {
         _rigidbody = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
+
+        jumpLeft = data.doubleJump ? 1 : 0;
     }
 
     // Update is called once per frame
@@ -57,9 +60,10 @@ public class PlayerController : MonoBehaviour
     }
 
     private void CheckCanAction() {
+        Debug.Log(jumpLeft);
         // Can jump (for double jump: use an integer numberOfJumpLeft & check if it is > 0)
         if (_isGrounded) {
-            jumpLeft = 1;
+            jumpLeft = data.doubleJump ? 1 : 0;
             if (!_isDashing) {
                 _canJump = true;
             }
@@ -68,8 +72,8 @@ public class PlayerController : MonoBehaviour
             }
         }
         else {
-            if (jumpLeft >= 1 && _rigidbody.velocity.y <= 0) {
-                _canJump = true;
+            if (jumpLeft > 0 &&_rigidbody.velocity.y <= 0) {
+                    _canJump = true;
             }
             else {
                 _canJump = false;
@@ -93,6 +97,8 @@ public class PlayerController : MonoBehaviour
             _canMove = false;
             _canDash = false;
         }
+
+        isHolding = Input.GetKey("up");
     }
 
     private void CheckSurroundings() {
@@ -137,6 +143,13 @@ public class PlayerController : MonoBehaviour
         if (_canMove) {
             _rigidbody.velocity = new Vector2(data.movementSpeed*_horizontalAxis, _rigidbody.velocity.y);
         }
+
+        if (_rigidbody.velocity.y < 0) {
+            _rigidbody.velocity += Vector2.up * Physics2D.gravity.y * (data.fallMultiplier - 1) * Time.deltaTime;
+        }
+        else if(_rigidbody.velocity.y > 0 && !isHolding) {
+            _rigidbody.velocity += Vector2.up * Physics2D.gravity.y * (data.lowJumpMultiplier - 1) * Time.deltaTime;
+        }
     }
 
     private void ApplyDash() {
@@ -156,7 +169,7 @@ public class PlayerController : MonoBehaviour
 
     private void Jump() {
         jumpLeft--;
-        _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, data.jumpForce);
+        _rigidbody.velocity = Vector2.up * data.jumpForce;
     }
 
     private void Flip()
