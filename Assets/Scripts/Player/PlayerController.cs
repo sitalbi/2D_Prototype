@@ -60,7 +60,6 @@ public class PlayerController : MonoBehaviour
     }
 
     private void CheckCanAction() {
-        Debug.Log(jumpLeft);
         // Can jump (for double jump: use an integer numberOfJumpLeft & check if it is > 0)
         if (_isGrounded) {
             jumpLeft = data.doubleJump ? 1 : 0;
@@ -97,8 +96,6 @@ public class PlayerController : MonoBehaviour
             _canMove = false;
             _canDash = false;
         }
-
-        isHolding = Input.GetKey("up");
     }
 
     private void CheckSurroundings() {
@@ -107,6 +104,7 @@ public class PlayerController : MonoBehaviour
     }
 
     private void CheckInput() {
+        isHolding = Input.GetKey("up");
         _horizontalAxis = Input.GetAxisRaw("Horizontal");
         
         //Jump input
