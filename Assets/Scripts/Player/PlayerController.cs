@@ -16,6 +16,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] 
     private LayerMask groundLayer,
         wallLayer;
+    
+    [SerializeField]
+    private float distanceBetweenImages;
 
     private Animator _animator;
     private Rigidbody2D _rigidbody;
@@ -32,11 +35,12 @@ public class PlayerController : MonoBehaviour
     public bool _canMove;
     private bool isTouchingWall;
     public bool isDamage;
+    private bool isHolding;
     
     private float _horizontalAxis;
     private float dashTimeLeft;
     private float dashCoolDownLeft;
-    private bool isHolding;
+    private float lastImageXpos;
 
     // Start is called before the first frame update
     void Start() {
@@ -62,14 +66,10 @@ public class PlayerController : MonoBehaviour
 
     private void CheckCanAction() {
         // Can jump (for double jump: use an integer numberOfJumpLeft & check if it is > 0)
-        if (_isGrounded) {
+        if (_isGrounded)
+        {
             jumpLeft = data.doubleJump ? 1 : 0;
-            if (!_isDashing) {
-                _canJump = true;
-            }
-            else {
-                _canJump = false;
-            }
+            _canJump = !_isDashing;
         }
         else {
             if (jumpLeft > 0 &&_rigidbody.velocity.y <= 0) {
@@ -127,6 +127,9 @@ public class PlayerController : MonoBehaviour
     private void DashInput() {
         _isDashing = true;
         dashTimeLeft = data.dashDuration;
+
+        PlayerRemnantImagePool.Instance.GetFromPool();
+        lastImageXpos = transform.position.x;
     }
 
 
@@ -163,8 +166,13 @@ public class PlayerController : MonoBehaviour
     private void ApplyDash() {
         if (_isDashing) {
             if (dashTimeLeft > 0) {
-                _rigidbody.velocity = new Vector2(data.dashForce * _facingDirection, _rigidbody.velocity.y);
+                _rigidbody.velocity = new Vector2(data.dashForce * _facingDirection, 0);
                 dashTimeLeft -= Time.deltaTime;
+                if (Math.Abs(transform.position.x - lastImageXpos) > distanceBetweenImages)
+                {
+                    PlayerRemnantImagePool.Instance.GetFromPool();
+                    lastImageXpos = transform.position.x;
+                }
             }
 
             if (dashTimeLeft <= 0 ||isTouchingWall) {

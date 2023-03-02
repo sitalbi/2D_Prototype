@@ -44,16 +44,21 @@ public class PlayerAttackController : MonoBehaviour
     }
 
     private void CheckAttack() {
-        _nextAttackCounter = Time.time + 1f/attackRate;
         if (_gotInput && canAttack) {
             //perform attack
             _gotInput = false;
             _animator.SetTrigger("Attack");
             _animator.SetInteger("attackCounter", currentAttackCounter);
             canAttack = false;
+            _nextAttackCounter = Time.time + 1f/(attackRate);
         }
         else {
             _gotInput = false;
+        }
+
+        if (Time.time >= _nextAttackCounter)
+        {
+            currentAttackCounter = 0;
         }
     }
 
@@ -71,7 +76,7 @@ public class PlayerAttackController : MonoBehaviour
 
     private void AttackEnd()
     {
-        if (currentAttackCounter < attacksNumber - 1 && Time.time < _nextAttackCounter)
+        if (currentAttackCounter < attacksNumber - 1)
         {
             currentAttackCounter++;
         }
