@@ -7,7 +7,7 @@ public class Sign : MonoBehaviour
 {
     [SerializeField] private GameObject canvas;
     [SerializeField] private GameObject dialogueBox;
-    [SerializeField] private DialogueObject dialogue;
+    [SerializeField] private DialogueObject dialogueData;
 
     private DialogueUI dialogueUI;
     private bool isInRange;
@@ -23,7 +23,7 @@ public class Sign : MonoBehaviour
     private void Update() {
         if (isInRange && !dialogueBox.activeSelf) {
             if (Input.GetKeyDown(KeyCode.C)) {
-                dialogueUI.ShowDialogue(dialogue);
+                dialogueUI.ShowDialogue(dialogueData);
             }
         }
     }

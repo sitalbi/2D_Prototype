@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
     private bool _isGrounded;
     private bool _canJump;
     private bool _canDash;
+    private bool _canFlip;
     private bool _isDashing;
     public bool _canMove;
     private bool isTouchingWall;
@@ -95,6 +96,11 @@ public class PlayerController : MonoBehaviour
             _canJump = false;
             _canMove = false;
             _canDash = false;
+            _canFlip = false;
+        }
+        else
+        {
+            _canFlip = true;
         }
     }
 
@@ -125,16 +131,20 @@ public class PlayerController : MonoBehaviour
 
 
     private void CheckDirection() {
-        //Flip the player according to the direction
-        if(_horizontalAxis < 0 && _facingRight)
+        if (_canFlip)
         {
-            Flip();
-        } else if (_horizontalAxis > 0 && !_facingRight)
-        {
-            Flip();
-        }
+            //Flip the player according to the direction
+            if(_horizontalAxis < 0 && _facingRight)
+            {
+                Flip();
+            } else if (_horizontalAxis > 0 && !_facingRight)
+            {
+                Flip();
+            }
 
-        _facingDirection = _facingRight ? 1 : -1;
+            _facingDirection = _facingRight ? 1 : -1;
+        }
+        
     }
 
     private void ApplyMovement() {

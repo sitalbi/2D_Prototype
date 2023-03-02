@@ -13,8 +13,13 @@ public class PlayerAttackController : MonoBehaviour
     [SerializeField] 
     private float attackRange;
     private float _nextAttackTime = 0f; 
+    private float _nextAttackCounter = 0f; 
     
     private bool _gotInput;
+    private bool canAttack;
+
+    private int currentAttackCounter;
+    private int attacksNumber = 2;
     
     private Animator _animator;
 
@@ -22,6 +27,7 @@ public class PlayerAttackController : MonoBehaviour
     void Start()
     {
         _animator = GetComponent<Animator>();
+        canAttack = true;
     }
 
     // Update is called once per frame
@@ -38,11 +44,13 @@ public class PlayerAttackController : MonoBehaviour
     }
 
     private void CheckAttack() {
-        if (_gotInput && Time.time >= _nextAttackTime) {
+        _nextAttackCounter = Time.time + 1f/attackRate;
+        if (_gotInput && canAttack) {
             //perform attack
             _gotInput = false;
             _animator.SetTrigger("Attack");
-            _nextAttackTime = Time.time + 1f/attackRate;
+            _animator.SetInteger("attackCounter", currentAttackCounter);
+            canAttack = false;
         }
         else {
             _gotInput = false;
@@ -59,6 +67,20 @@ public class PlayerAttackController : MonoBehaviour
         foreach (Collider2D hitObject in hitObjects) {
             hitObject.SendMessage("Damage", attackDetails);
         }
+    }
+
+    private void AttackEnd()
+    {
+        if (currentAttackCounter < attacksNumber - 1 && Time.time < _nextAttackCounter)
+        {
+            currentAttackCounter++;
+        }
+        else
+        {
+            currentAttackCounter = 0;
+        }
+
+        canAttack = true;
     }
     
 }
