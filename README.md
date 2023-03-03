@@ -5,4 +5,4 @@ To do list:
  - Background image(s) with parallax
  - Particles (footstep, attack, etc...)
  - Destroyable props
- - Add new props (chest, resources)
+ - Add new props (chest, resources, doors between rooms)
