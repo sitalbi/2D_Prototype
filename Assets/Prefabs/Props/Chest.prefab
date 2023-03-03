@@ -254,6 +254,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 2548655977865406741}
+  chestData: {fileID: 0}
   animator: {fileID: 2548655977554419893}
   item: {fileID: 2548655978195257964}
   chestOpen: {fileID: 21300000, guid: 47704f60564bce7418327c1c1e223adc, type: 3}
@@ -454,9 +455,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 1858431297
+  m_SortingLayer: 3
+  m_SortingOrder: 1
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -480,8 +481,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7394db7dbbe1a94cb553f673d4a321b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chestData: {fileID: 0}
   animator: {fileID: 2548655978195257954}
+  chestManager: {fileID: 0}
 --- !u!95 &2548655978195257954
 Animator:
   serializedVersion: 5

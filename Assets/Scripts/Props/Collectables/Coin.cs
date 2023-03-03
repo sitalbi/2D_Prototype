@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class Coin : Collectable
 {
-    [SerializeField] private PlayerMoney playerMoney;
+    private PlayerMoney playerMoney;
+    
         
     public override void Collect()
     {
+        playerMoney = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMoney>();
         playerMoney.MoneyIncrease(1);
         base.Collect();
     }

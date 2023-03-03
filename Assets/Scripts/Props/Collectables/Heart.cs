@@ -13,6 +13,7 @@ public class Heart : Collectable
     }
 
     public override void Collect() {
+        playerLife = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerLife>();
         playerLife.HealthIncrease();
         base.Collect();
     }

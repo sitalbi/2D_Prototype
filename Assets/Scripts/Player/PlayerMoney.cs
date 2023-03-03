@@ -32,13 +32,14 @@ public class PlayerMoney : MonoBehaviour
         rg2D = GetComponent<Rigidbody2D>();
         _controller = GetComponent<PlayerController>();
         
-        if (PlayerPrefs.HasKey("money"))
+        if (!PlayerPrefs.HasKey("money"))
         {
-            coinsAmount = PlayerPrefs.GetInt("money");
+            CoinsAmount = 0;
         }
         else
         {
-            coinsAmount = 0;
+            CoinsAmount = PlayerPrefs.GetInt("money");
+            moneyUI.UpdateMoney(CoinsAmount);
         }
     }
 
@@ -49,12 +50,12 @@ public class PlayerMoney : MonoBehaviour
     }
 
     public void MoneyIncrease(int amount) {
-        coinsAmount+=amount;
-        moneyUI.UpdateMoney(coinsAmount);
+        CoinsAmount+=amount;
+        moneyUI.UpdateMoney(CoinsAmount);
     }
     
     public void MoneyDecrease(int amount) {
-        coinsAmount-=amount;
-        moneyUI.UpdateMoney(coinsAmount);
+        CoinsAmount-=amount;
+        moneyUI.UpdateMoney(CoinsAmount);
     }
 }

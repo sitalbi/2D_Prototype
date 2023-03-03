@@ -8,7 +8,6 @@ using UnityEngine.UI;
 public class Money : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI coinText;
-    [SerializeField] private PlayerStats playerStats;
     
     private void Start() {
         

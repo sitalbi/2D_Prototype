@@ -5,12 +5,13 @@ using UnityEngine;
 
 public class itemManager : MonoBehaviour
 {
-    [SerializeField] private ChestData chestData;
     [SerializeField] private Animator animator;
+    [SerializeField] private ChestManager chestManager;
     
     private void OnEnable()
     {
-        GetComponent<SpriteRenderer>().sprite = chestData.item.GetComponent<SpriteRenderer>().sprite;
+        GetComponent<SpriteRenderer>().sprite = chestManager.chestData.item.GetComponent<SpriteRenderer>().sprite;
+        transform.localScale = new Vector3(1, 1, 1);
         animator.Play("itemOut");
         Invoke(nameof(Finish), 1.5f);
         

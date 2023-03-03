@@ -8,6 +8,5 @@ public class Collectable : MonoBehaviour
     
     public virtual void Collect() {
         gameObject.SetActive(false);
-        Destroy(gameObject,2f);
     }
 }

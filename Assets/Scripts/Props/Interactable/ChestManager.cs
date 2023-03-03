@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class ChestManager : Interactable
 {
+    [SerializeField] public ChestData chestData;
     [SerializeField] private Animator animator;
     [SerializeField] private GameObject item;
     [SerializeField] private Sprite chestOpen, chestClose;
@@ -33,5 +34,6 @@ public class ChestManager : Interactable
     {
         item.SetActive(true);
         GetComponent<SpriteRenderer>().sprite = chestOpen;
+        chestData.item.GetComponent<Collectable>().Collect();
     }
 }

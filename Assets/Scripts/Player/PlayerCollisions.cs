@@ -35,7 +35,6 @@ public class PlayerCollisions : MonoBehaviour
             attackDetails.position = collision.transform.position;
             _playerDamage.Damage(attackDetails);
         } else if (collision.gameObject.layer == collectableLayer) {
-            Debug.Log("TOUCH");
             collision.gameObject.SendMessage("Collect");
         }
     }
