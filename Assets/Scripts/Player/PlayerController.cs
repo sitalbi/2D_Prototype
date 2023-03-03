@@ -66,14 +66,18 @@ public class PlayerController : MonoBehaviour
 
     private void CheckCanAction() {
         // Can jump (for double jump: use an integer numberOfJumpLeft & check if it is > 0)
-        if (_isGrounded)
-        {
+        if (_isGrounded) {
             jumpLeft = data.doubleJump ? 1 : 0;
-            _canJump = !_isDashing;
+            if (!_isDashing) {
+                _canJump = true;
+            }
+            else {
+                _canJump = false;
+            }
         }
         else {
             if (jumpLeft > 0 &&_rigidbody.velocity.y <= 0) {
-                    _canJump = true;
+                _canJump = true;
             }
             else {
                 _canJump = false;
