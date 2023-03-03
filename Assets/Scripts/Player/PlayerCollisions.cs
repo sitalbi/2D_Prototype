@@ -26,7 +26,7 @@ public class PlayerCollisions : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
-        if (collision.gameObject.tag == enemyTag) {
+        if (collision.gameObject.CompareTag(enemyTag)) {
             AttackDetails attackDetails = new AttackDetails();
             attackDetails.damageCost = 1;
             attackDetails.position = collision.transform.position;

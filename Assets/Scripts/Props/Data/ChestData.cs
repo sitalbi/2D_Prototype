@@ -6,4 +6,6 @@ using UnityEngine;
 public class ChestData : ScriptableObject
 {
     public GameObject item; // the prefab of the object or item contained in the chest
+
+    public bool isOpened;
 }
