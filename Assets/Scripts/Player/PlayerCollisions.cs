@@ -6,7 +6,10 @@ using UnityEngine;
 public class PlayerCollisions : MonoBehaviour
 {
     [SerializeField]
-    private int propsLayer,collectableLayer;
+    private int collectableLayer;
+    
+    [SerializeField]
+    private string interactableTag;
 
     [SerializeField] private string enemyTag;
 
@@ -32,20 +35,19 @@ public class PlayerCollisions : MonoBehaviour
             attackDetails.position = collision.transform.position;
             _playerDamage.Damage(attackDetails);
         } else if (collision.gameObject.layer == collectableLayer) {
-            PlayerStats playerStats = new PlayerStats();
-            playerStats.playerLife = _playerDamage;
-            collision.gameObject.SendMessage("Collect", _playerDamage);
+            Debug.Log("TOUCH");
+            collision.gameObject.SendMessage("Collect");
         }
     }
 
     private void OnTriggerEnter2D(Collider2D col) {
-        if (col.gameObject.layer == propsLayer) {
+        if (col.gameObject.CompareTag(interactableTag)) {
             col.gameObject.SendMessage("PlayerInRange");
         }
     }
     
     private void OnTriggerExit2D(Collider2D col) {
-        if (col.gameObject.layer == propsLayer) {
+        if (col.gameObject.CompareTag(interactableTag)) {
             col.gameObject.SendMessage("PlayerExitRange");
         }
     }

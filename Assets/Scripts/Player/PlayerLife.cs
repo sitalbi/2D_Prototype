@@ -15,12 +15,7 @@ public class PlayerLife : MonoBehaviour
     private Rigidbody2D rg2D;
     
     private PlayerController _controller;
-    
-    private SpriteRenderer _spriteRenderer;
 
-    [NonSerialized]
-    public bool isDamage;
-    
     private float damageDuration, damageStart, nextDamageTime;
 
     private float currentHealth;
@@ -28,8 +23,6 @@ public class PlayerLife : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
-        _spriteRenderer = GetComponent<SpriteRenderer>();
         rg2D = GetComponent<Rigidbody2D>();
         _controller = GetComponent<PlayerController>();
         damageDuration = 0.3f;

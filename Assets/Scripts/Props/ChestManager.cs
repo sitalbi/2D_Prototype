@@ -1,30 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
+using Props;
 using UnityEngine;
 
-public class ChestManager : MonoBehaviour
+public class ChestManager : Interactable
 {
     [SerializeField] private Animator animator;
     [SerializeField] private GameObject item;
     [SerializeField] private Sprite chestOpen, chestClose;
-    
-    
-    // Update is called once per frame
-    void Update()
+
+    private BoxCollider2D boxCollider;
+
+    public override void Start()
     {
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            Open();
-        }
+        base.Start();
+        boxCollider = GetComponent<BoxCollider2D>();
     }
-    
+
+    protected override void Interact()
+    {
+        Open();
+    }
+
     private void Open()
     {
         animator.Play("chestOpening");
+        boxCollider.enabled = false;
     }
 
     public void ChestOpened()
     {
         item.SetActive(true);
+        GetComponent<SpriteRenderer>().sprite = chestOpen;
     }
 }

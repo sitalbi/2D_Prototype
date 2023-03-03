@@ -7,7 +7,7 @@ namespace Props
         [SerializeField] protected GameObject canvas;
         private bool isInRange;
         
-        void Start()
+        public virtual void Start()
         {
             canvas.gameObject.SetActive(false);
         }

@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class Collectable : MonoBehaviour
 {
-    public virtual void Collect(PlayerLife playerLife) {
+    
+    public virtual void Collect() {
         gameObject.SetActive(false);
         Destroy(gameObject,2f);
     }
