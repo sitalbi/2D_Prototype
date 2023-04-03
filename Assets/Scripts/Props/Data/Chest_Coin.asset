@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11823c98485258d47a30e29aef2ab7e8, type: 3}
   m_Name: Chest_Coin
   m_EditorClassIdentifier: 
-  item: {fileID: 0}
+  item: {fileID: 5254606674129398672, guid: f35e9e0d0fd5ee747a0851d05ea58e68, type: 3}

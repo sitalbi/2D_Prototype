@@ -84,7 +84,8 @@ AnimationClip:
   - time: 0.41666666
     functionName: ChestOpened
     data: 
-    objectReferenceParameter: {fileID: 0}
+    objectReferenceParameter: {fileID: 11500000, guid: 9832f8046ef1a8d48b4d201e061e8d2d,
+      type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0

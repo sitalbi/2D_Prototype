@@ -8,7 +8,6 @@ public class ChestManager : Interactable
 {
     [SerializeField] public ChestData chestData;
     [SerializeField] private Animator animator;
-    [SerializeField] private GameObject itemPrefab;
     [SerializeField] private Sprite chestOpen, chestClose;
 
     private BoxCollider2D boxCollider;

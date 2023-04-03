@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerLightController : MonoBehaviour
+public class LightController : MonoBehaviour
 {
-    [SerializeField] private GameObject playerLight, globalLight;
+    [SerializeField] private GameObject localLight, globalLight;
     
     void Start()
     {
@@ -15,10 +15,10 @@ public class PlayerLightController : MonoBehaviour
     void Update()
     {
         if (!globalLight.activeSelf) {
-            playerLight.SetActive(true);
+            localLight.SetActive(true);
         }
         else {
-            playerLight.SetActive(false);
+            localLight.SetActive(false);
         }
     }
 }
