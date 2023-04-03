@@ -8,7 +8,7 @@ public class ChestManager : Interactable
 {
     [SerializeField] public ChestData chestData;
     [SerializeField] private Animator animator;
-    [SerializeField] private GameObject item;
+    [SerializeField] private GameObject itemPrefab;
     [SerializeField] private Sprite chestOpen, chestClose;
 
     private BoxCollider2D boxCollider;
@@ -32,8 +32,7 @@ public class ChestManager : Interactable
 
     public void ChestOpened()
     {
-        item.SetActive(true);
-        GetComponent<SpriteRenderer>().sprite = chestOpen;
-        chestData.item.GetComponent<Collectable>().Collect();
+        GameObject item = Instantiate(chestData.item, transform.position, Quaternion.identity);
+        item.GetComponent<Rigidbody2D>().AddForce(new Vector2(0,0.7f), ForceMode2D.Impulse);
     }
 }
