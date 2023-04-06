@@ -1,0 +1,105 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Atlas_AutoLayers_1_basic
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 0
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: 4
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 2
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 4621471179053146575, guid: 5ce91d48ac9c4e74f8af3847e6d72ec8, type: 3}
+    - {fileID: -1202033369717596703, guid: 5ce91d48ac9c4e74f8af3847e6d72ec8, type: 3}
+    - {fileID: -8615291664211314230, guid: 5ce91d48ac9c4e74f8af3847e6d72ec8, type: 3}
+    - {fileID: 7754015353544526695, guid: 5ce91d48ac9c4e74f8af3847e6d72ec8, type: 3}
+    - {fileID: -2048857688410304729, guid: 5ce91d48ac9c4e74f8af3847e6d72ec8, type: 3}
+    - {fileID: 1122938285714563731, guid: 5ce91d48ac9c4e74f8af3847e6d72ec8, type: 3}
+    - {fileID: 2504926078783670749, guid: 5ce91d48ac9c4e74f8af3847e6d72ec8, type: 3}
+    - {fileID: 2492715250218967905, guid: 5ce91d48ac9c4e74f8af3847e6d72ec8, type: 3}
+    - {fileID: -8039739805279036990, guid: 5ce91d48ac9c4e74f8af3847e6d72ec8, type: 3}
+    - {fileID: -1223135341615078968, guid: 5ce91d48ac9c4e74f8af3847e6d72ec8, type: 3}
+    - {fileID: 5166105129937296393, guid: 5ce91d48ac9c4e74f8af3847e6d72ec8, type: 3}
+    - {fileID: -8754558440136318969, guid: 5ce91d48ac9c4e74f8af3847e6d72ec8, type: 3}
+    - {fileID: 7310567735062324624, guid: 5ce91d48ac9c4e74f8af3847e6d72ec8, type: 3}
+    - {fileID: -5838152407751477109, guid: 5ce91d48ac9c4e74f8af3847e6d72ec8, type: 3}
+    - {fileID: 4951431776868916574, guid: 5ce91d48ac9c4e74f8af3847e6d72ec8, type: 3}
+    - {fileID: 4431456143589139976, guid: 5ce91d48ac9c4e74f8af3847e6d72ec8, type: 3}
+    - {fileID: 794893959937016985, guid: 5ce91d48ac9c4e74f8af3847e6d72ec8, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: -8754558440136318969, guid: 5ce91d48ac9c4e74f8af3847e6d72ec8, type: 3}
+  - {fileID: -5838152407751477109, guid: 5ce91d48ac9c4e74f8af3847e6d72ec8, type: 3}
+  - {fileID: -8615291664211314230, guid: 5ce91d48ac9c4e74f8af3847e6d72ec8, type: 3}
+  - {fileID: 1122938285714563731, guid: 5ce91d48ac9c4e74f8af3847e6d72ec8, type: 3}
+  - {fileID: 794893959937016985, guid: 5ce91d48ac9c4e74f8af3847e6d72ec8, type: 3}
+  - {fileID: 7754015353544526695, guid: 5ce91d48ac9c4e74f8af3847e6d72ec8, type: 3}
+  - {fileID: 2504926078783670749, guid: 5ce91d48ac9c4e74f8af3847e6d72ec8, type: 3}
+  - {fileID: -2048857688410304729, guid: 5ce91d48ac9c4e74f8af3847e6d72ec8, type: 3}
+  - {fileID: 2492715250218967905, guid: 5ce91d48ac9c4e74f8af3847e6d72ec8, type: 3}
+  - {fileID: 4431456143589139976, guid: 5ce91d48ac9c4e74f8af3847e6d72ec8, type: 3}
+  - {fileID: 4951431776868916574, guid: 5ce91d48ac9c4e74f8af3847e6d72ec8, type: 3}
+  - {fileID: -1223135341615078968, guid: 5ce91d48ac9c4e74f8af3847e6d72ec8, type: 3}
+  - {fileID: -1202033369717596703, guid: 5ce91d48ac9c4e74f8af3847e6d72ec8, type: 3}
+  - {fileID: -8039739805279036990, guid: 5ce91d48ac9c4e74f8af3847e6d72ec8, type: 3}
+  - {fileID: 5166105129937296393, guid: 5ce91d48ac9c4e74f8af3847e6d72ec8, type: 3}
+  - {fileID: 7310567735062324624, guid: 5ce91d48ac9c4e74f8af3847e6d72ec8, type: 3}
+  - {fileID: 4621471179053146575, guid: 5ce91d48ac9c4e74f8af3847e6d72ec8, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - oak_woods_tileset_72_312_24_24
+  - oak_woods_tileset_120_264_24_24
+  - oak_woods_tileset_0_312_24_24
+  - oak_woods_tileset_24_312_24_24
+  - oak_woods_tileset_168_264_24_24
+  - oak_woods_tileset_0_336_24_24
+  - oak_woods_tileset_24_336_24_24
+  - oak_woods_tileset_24_264_24_24
+  - oak_woods_tileset_48_264_24_24
+  - oak_woods_tileset_144_288_24_24
+  - oak_woods_tileset_144_216_24_24
+  - oak_woods_tileset_72_264_24_24
+  - oak_woods_tileset_0_288_24_24
+  - oak_woods_tileset_48_336_24_24
+  - oak_woods_tileset_72_288_24_24
+  - oak_woods_tileset_72_336_24_24
+  - oak_woods_tileset_0_264_24_24
+  m_RenderDataMap: {}
+  m_Tag: Atlas_AutoLayers_1_basic
+  m_IsVariant: 0
