@@ -21,7 +21,7 @@
 	"defaultLevelHeight": 256,
 	"defaultPivotX": 0,
 	"defaultPivotY": 0,
-	"defaultGridSize": 24,
+	"defaultGridSize": 100,
 	"bgColor": "#40465B",
 	"defaultLevelBgColor": "#696A79",
 	"minifyJson": false,
