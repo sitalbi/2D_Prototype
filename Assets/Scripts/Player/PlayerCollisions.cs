@@ -9,7 +9,7 @@ public class PlayerCollisions : MonoBehaviour
     private int collectableLayer;
     
     [SerializeField]
-    private string interactableTag;
+    private string interactableTag, passageTag;
 
     [SerializeField] private string enemyTag;
 
@@ -42,6 +42,10 @@ public class PlayerCollisions : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D col) {
         if (col.gameObject.CompareTag(interactableTag)) {
             col.gameObject.SendMessage("PlayerInRange");
+        }
+        
+        if (col.gameObject.CompareTag(passageTag)) {
+            col.gameObject.SendMessage("ChangeLevel");
         }
     }
     
