@@ -12,8 +12,8 @@
 
 ## Scene and level architecture:
 
-- Technique 1:
-   use a scene for each "biome". Each biome can contains multiple levels, which contains their own props, enemies, and other gameobjects. Levels are gameobjects themselves and are deactivated until the player step in them.
+Use a scene for each "biome". Each biome can contains multiple levels, which contains their own props, enemies, and other gameobjects. Levels are gameobjects themselves and are deactivated until the player step in them.
 
-- Technique 2:
-   use a scene for each levels. Easier to set up but can be quickly difficult to manage for big maps.
+A level gameobject should contain: 
+       - a child gameobject with a collider and script to manage the level change (onCollisionEnter).
+       - a script initializing an object of the class Level. The class Level contains everything related to the level (spawn position of the player, etc...)
