@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Props
 {
@@ -13,10 +14,16 @@ namespace Props
         }
 
         private void Update() {
-            if (isInRange) {
+            /*if (isInRange) {
                 if (Input.GetKeyDown(KeyCode.C)) {
                     Interact();
                 }
+            }*/
+        }
+
+        public void OnActionInput(InputAction.CallbackContext context) {
+            if (context.started && isInRange) {
+                Interact();
             }
         }
 

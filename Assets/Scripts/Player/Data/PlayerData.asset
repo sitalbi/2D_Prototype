@@ -21,4 +21,4 @@ MonoBehaviour:
   dashDuration: 0.1
   dashForce: 25
   dashCoolDown: 0.3
-  doubleJump: 0
+  doubleJump: 1

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
 
 public class PlayerController : MonoBehaviour
@@ -42,6 +43,8 @@ public class PlayerController : MonoBehaviour
     private float dashCoolDownLeft;
     private float lastImageXpos;
 
+    private Vector2 movementInput;
+    
     // Start is called before the first frame update
     void Start() {
         _rigidbody = GetComponent<Rigidbody2D>();
@@ -52,7 +55,7 @@ public class PlayerController : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
-        CheckInput();
+        //CheckInput();
         CheckDirection();
         UpdateAnimations();
         CheckCanAction();
@@ -128,6 +131,24 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void OnMoveInput(InputAction.CallbackContext context) {
+        movementInput = context.ReadValue<Vector2>();
+    }
+
+    public void OnJumpInput(InputAction.CallbackContext context) {
+        if (context.started && _canJump) {
+            Jump();
+        }
+
+        isHolding = context.performed;
+    }
+    
+    public void OnDashInput(InputAction.CallbackContext context) {
+        if (context.started && _canDash) {
+            DashInput();
+        }
+    }
+
     private void DashInput() {
         _isDashing = true;
         dashTimeLeft = data.dashDuration;
@@ -141,10 +162,10 @@ public class PlayerController : MonoBehaviour
         if (_canFlip)
         {
             //Flip the player according to the direction
-            if(_horizontalAxis < 0 && _facingRight)
+            if(movementInput.x < 0 && _facingRight)
             {
                 Flip();
-            } else if (_horizontalAxis > 0 && !_facingRight)
+            } else if (movementInput.x > 0 && !_facingRight)
             {
                 Flip();
             }
@@ -156,7 +177,7 @@ public class PlayerController : MonoBehaviour
 
     private void ApplyMovement() {
         if (_canMove) {
-            _rigidbody.velocity = new Vector2(data.movementSpeed*_horizontalAxis, _rigidbody.velocity.y);
+            _rigidbody.velocity = new Vector2(data.movementSpeed*movementInput.x, _rigidbody.velocity.y);
         }
 
         if (_rigidbody.velocity.y < 0) {
@@ -199,7 +220,7 @@ public class PlayerController : MonoBehaviour
     }
 
     private void UpdateAnimations() {
-        _animator.SetFloat("horizontalVelocity", Mathf.Abs(_horizontalAxis));
+        _animator.SetFloat("horizontalVelocity", Mathf.Abs(movementInput.x));
         _animator.SetFloat("verticalVelocity",_rigidbody.velocity.y);
     }
     

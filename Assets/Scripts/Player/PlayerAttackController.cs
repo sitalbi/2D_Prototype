@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerAttackController : MonoBehaviour
 {
@@ -33,12 +34,18 @@ public class PlayerAttackController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CheckCombatInputs();
+        //CheckCombatInputs();
         CheckAttack();
     }
 
     private void CheckCombatInputs() {
         if (Input.GetKeyDown(KeyCode.X)) {
+            _gotInput = true;
+        }
+    }
+
+    public void OnMeleeInput(InputAction.CallbackContext context) {
+        if (context.started) {
             _gotInput = true;
         }
     }
