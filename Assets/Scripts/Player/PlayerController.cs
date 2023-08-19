@@ -32,9 +32,9 @@ public class PlayerController : MonoBehaviour
     private bool _canDash;
     private bool _canFlip;
     private bool _isDashing;
-    public bool _canMove;
+    [NonSerialized] public bool _canMove;
     private bool isTouchingWall;
-    public bool isDamage;
+    [NonSerialized] public bool isDamage;
     private bool isHolding;
     
     private float _horizontalAxis;
