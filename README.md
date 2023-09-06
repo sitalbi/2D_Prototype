@@ -5,7 +5,7 @@
  - Background image(s) with parallax
  - Particles (footstep, attack, etc...)
  - Destroyable props
- - Add new props (resources, doors between rooms)
+ - Add new props (resources, doors between rooms, etc...)
  - New ennemies (Boss?)
 
 
