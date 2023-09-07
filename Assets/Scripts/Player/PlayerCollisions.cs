@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Props;
 using UnityEngine;
 
 public class PlayerCollisions : MonoBehaviour

@@ -18,7 +18,7 @@ public class ChestManager : Interactable
         boxCollider = GetComponent<BoxCollider2D>();
     }
 
-    protected override void Interact()
+    public override void Interact()
     {
         Open();
     }
@@ -27,6 +27,7 @@ public class ChestManager : Interactable
     {
         animator.Play("chestOpening");
         boxCollider.enabled = false;
+        canvas.gameObject.SetActive(false);
     }
 
     public void ChestOpened()

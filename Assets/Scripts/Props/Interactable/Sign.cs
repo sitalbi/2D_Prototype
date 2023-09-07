@@ -10,12 +10,13 @@ namespace Props
         private DialogueUI dialogueUI;
     
         // Start is called before the first frame update
-        void Start()
+        public override void Start()
         {
+            base.Start();
             dialogueUI = dialogueBox.GetComponent<DialogueUI>();
         }
 
-        protected override void Interact()
+        public override void Interact()
         {
             if (!dialogueBox.activeSelf)
             {

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Props;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
@@ -26,6 +27,9 @@ public class PlayerController : MonoBehaviour
 
     private int _facingDirection = 1;
     private int jumpLeft;
+    
+    
+    public bool actionPressed;
 
     private bool _facingRight = true;
     private bool _isGrounded;
@@ -44,11 +48,17 @@ public class PlayerController : MonoBehaviour
     private float lastImageXpos;
 
     private Vector2 movementInput;
+
+    private Interactable interactableObjectInRange;
+    private PlayerInput playerInput;
     
     // Start is called before the first frame update
     void Start() {
         _rigidbody = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
+        actionPressed = false;
+
+        playerInput = GetComponent<PlayerInput>();
 
         jumpLeft = data.doubleJump ? 1 : 0;
     }
@@ -148,6 +158,12 @@ public class PlayerController : MonoBehaviour
             DashInput();
         }
     }
+    
+    public void OnActionInput(InputAction.CallbackContext context) {
+        if (interactableObjectInRange != null) {
+            interactableObjectInRange.Interact();
+        }
+    }
 
     private void DashInput() {
         _isDashing = true;
@@ -223,5 +239,8 @@ public class PlayerController : MonoBehaviour
         _animator.SetFloat("horizontalVelocity", Mathf.Abs(movementInput.x));
         _animator.SetFloat("verticalVelocity",_rigidbody.velocity.y);
     }
-    
+
+    public void SetInteractableObject(Interactable interactableObject) {
+        interactableObjectInRange = interactableObject;
+    }
 }
